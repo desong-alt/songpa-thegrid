@@ -13,6 +13,8 @@ main{max-width:720px;margin:auto;padding:10px 9px 28px}.hero{background:#111827;
 .row{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px}.row:last-child{border-bottom:0}.row b{font-size:13px}
 .tax{display:grid;grid-template-columns:1fr 1fr;gap:8px}.taxbox{border-radius:13px;padding:11px;background:#f9fafb;border:1px solid var(--line)}.taxbox .n{font-size:19px;font-weight:800}.taxbox .l{font-size:11px;color:var(--muted)}
 .explain{margin-top:9px;padding:11px 12px;border-radius:12px;background:#f8fafc;border:1px solid var(--line);font-size:12px;color:#374151}.explain b{color:#111827}.explain p{margin:5px 0}.warn{margin-top:8px;padding:10px 11px;border-radius:12px;background:#fff7ed;color:#7c2d12;font-size:12px}.danger{background:#fef2f2;color:#7f1d1d;border:1px solid #fecaca}.point{margin:0;padding-left:18px}.point li{font-size:12px;color:#4b5563;margin:5px 0}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px}.tax-table{width:100%;min-width:760px;border-collapse:collapse;background:#fff}.tax-table th,.tax-table td{padding:9px 10px;border-bottom:1px solid var(--line);font-size:12px;text-align:right;white-space:nowrap}.tax-table th:first-child,.tax-table td:first-child{text-align:left;position:sticky;left:0;background:#fff;z-index:1}.tax-table thead th{background:#f8fafc;font-weight:700;color:#374151}.tax-table thead th:first-child{background:#f8fafc}.tax-table tbody tr:last-child td{border-bottom:0}.tax-table .em{font-weight:800;color:#111827}
+.caption{font-size:11px;color:var(--muted);margin:8px 1px 0;line-height:1.45}
 details{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}summary{cursor:pointer;font-size:13px;font-weight:700}a{color:var(--blue);text-decoration:none}footer{text-align:center;font-size:11px;color:#9ca3af;padding:16px 4px 0}
 @media(max-width:430px){main{padding:8px 8px 24px}.hero{padding:18px 15px}.hero h1{font-size:23px}.grid,.tax{grid-template-columns:1fr 1fr}.price{font-size:16px}.row{grid-template-columns:88px 1fr}}
 </style>
@@ -35,6 +37,29 @@ details{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}summar
 </section>
 
 <section class="section">
+<h2>위례중푸 + 더 그리드 합산 세금</h2>
+<div class="table-wrap">
+<table class="tax-table">
+<thead><tr><th>구분</th><th>4군</th><th>5군</th><th>6군</th><th>7군</th></tr></thead>
+<tbody>
+<tr><td>분양가 중간값</td><td class="em">12.74억</td><td class="em">14.97억</td><td class="em">17.02억</td><td class="em">19.51억</td></tr>
+<tr><td>취득세 등 약 4.6%</td><td>5,860만</td><td>6,890만</td><td>7,830만</td><td>8,980만</td></tr>
+<tr><td>공동명의 1인당 취득세</td><td>2,930만</td><td>3,445만</td><td>3,915만</td><td>4,490만</td></tr>
+<tr><td>위례중푸 보유세 예상</td><td>384만/년</td><td>384만/년</td><td>384만/년</td><td>384만/년</td></tr>
+<tr><td>더 그리드 재산세 등</td><td>256만</td><td>314만</td><td>368만</td><td>433만</td></tr>
+<tr><td>종부세 + 농특세</td><td>68만</td><td>117만</td><td>159만</td><td>211만</td></tr>
+<tr><td class="em">두 부동산 합산 보유세</td><td class="em">709만/년</td><td class="em">816만/년</td><td class="em">911만/년</td><td class="em">1,028만/년</td></tr>
+<tr><td>현재 약 280만 대비 증가</td><td>+429만</td><td>+536만</td><td>+631만</td><td>+748만</td></tr>
+</tbody>
+</table>
+</div>
+<p class="caption">※ 가정: 현재 위례중앙푸르지오를 계속 보유, 두 부동산 모두 부부 50:50 공동명의. 위례중푸 공시가격 약 11.23억원, 현재 가구 보유세 약 280만원/년. 더 그리드의 향후 과세가액은 분양가의 70%로 가정한 시뮬레이션입니다.</p>
+<div class="explain">
+<p><b>왜 위례중푸 세금도 오르나?</b> 더 그리드가 주거용 주택으로 과세되면 2주택 구조가 되어, 현재 위례중푸에 적용되는 1세대 1주택 재산세 과표 혜택이 약해질 수 있기 때문입니다. 그래서 신규 오피스텔 세금만 더하는 것이 아니라 기존 집 세금 증가도 함께 반영했습니다.</p>
+</div>
+</section>
+
+<section class="section">
 <h2>취득세: 왜 체감 부담이 큰가</h2>
 <div class="tax"><div class="taxbox"><div class="l">예산 기준</div><div class="n">약 4.6%</div><div class="small">오피스텔 취득 기준으로 보수적 계산</div></div><div class="taxbox"><div class="l">7군 최고가</div><div class="n">약 0.99억</div><div class="small">분양가와 별도로 필요한 초기 현금</div></div></div>
 <div class="explain">
@@ -46,7 +71,7 @@ details{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}summar
 
 <section class="section">
 <h2>보유세: 왜 기존 집까지 영향을 받나</h2>
-<div class="tax"><div class="taxbox"><div class="l">현재 가구 부담</div><div class="n">약 280만/년</div><div class="small">위례 아파트 공동명의 기준</div></div><div class="taxbox"><div class="l">7군 추가 시 추정</div><div class="n">약 932~1,123만/년</div><div class="small">가구 전체 보유세 추정</div></div></div>
+<div class="tax"><div class="taxbox"><div class="l">현재 가구 부담</div><div class="n">약 280만/년</div><div class="small">위례 아파트 공동명의 기준</div></div><div class="taxbox"><div class="l">7군 중간값 추가 시</div><div class="n">약 1,028만/년</div><div class="small">가구 전체 보유세 추정</div></div></div>
 <div class="explain">
 <p><b>주거용 오피스텔로 과세되면 아파트와 함께 주택으로 합산</b>됩니다. 그래서 더 그리드 자체 재산세뿐 아니라 종부세 계산에도 영향을 줍니다.</p>
 <p><b>기존 위례 아파트의 1주택 혜택도 약해질 수 있습니다.</b> 현재 1세대 1주택에 적용되는 낮은 재산세 과표비율이 일반 주택 기준으로 바뀌면 기존 집 세금도 함께 증가할 수 있습니다.</p>
@@ -88,7 +113,10 @@ details{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}summar
 <li><a href="https://www.sangga114.co.kr/document/news_column_detail?documentSrl=27880">정동 롯데캐슬 136</a></li>
 <li><a href="https://www.etoday.co.kr/news/view/2333779">이문 아이파크자이 IM594</a></li>
 <li><a href="https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7735&mi=40377">국세청 종합부동산세 안내</a></li>
+<li><a href="https://www.law.go.kr/">국가법령정보센터</a></li>
 </ul></details>
 </section>
+
 <footer>2026년 9월 기준 · 비교 및 자금계획용</footer>
-</main></body></html>
+</main></body>
+</html>
