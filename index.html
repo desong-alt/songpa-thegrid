@@ -13,7 +13,7 @@ main{max-width:720px;margin:auto;padding:10px 9px 28px}.hero{background:#111827;
 .row{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px}.row:last-child{border-bottom:0}.row b{font-size:13px}
 .tax{display:grid;grid-template-columns:1fr 1fr;gap:8px}.taxbox{border-radius:13px;padding:11px;background:#f9fafb;border:1px solid var(--line)}.taxbox .n{font-size:19px;font-weight:800}.taxbox .l{font-size:11px;color:var(--muted)}
 .explain{margin-top:9px;padding:11px 12px;border-radius:12px;background:#f8fafc;border:1px solid var(--line);font-size:12px;color:#374151}.explain b{color:#111827}.explain p{margin:5px 0}.warn{margin-top:8px;padding:10px 11px;border-radius:12px;background:#fff7ed;color:#7c2d12;font-size:12px}.danger{background:#fef2f2;color:#7f1d1d;border:1px solid #fecaca}.point{margin:0;padding-left:18px}.point li{font-size:12px;color:#4b5563;margin:5px 0}
-.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px}.tax-table{width:100%;min-width:760px;border-collapse:collapse;background:#fff}.tax-table th,.tax-table td{padding:9px 10px;border-bottom:1px solid var(--line);font-size:12px;text-align:right;white-space:nowrap}.tax-table th:first-child,.tax-table td:first-child{text-align:left;position:sticky;left:0;background:#fff;z-index:1}.tax-table thead th{background:#f8fafc;font-weight:700;color:#374151}.tax-table thead th:first-child{background:#f8fafc}.tax-table tbody tr:last-child td{border-bottom:0}.tax-table .em{font-weight:800;color:#111827}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px}.tax-table{width:100%;min-width:760px;border-collapse:collapse;background:#fff}.tax-table th,.tax-table td{padding:9px 10px;border-bottom:1px solid var(--line);font-size:12px;text-align:right;white-space:nowrap}.tax-table th:first-child,.tax-table td:first-child{text-align:left;position:sticky;left:0;background:#fff;z-index:1}.tax-table thead th{background:#f8fafc;font-weight:700;color:#374151}.tax-table thead th:first-child{background:#f8fafc}.tax-table tbody tr:last-child td{border-bottom:0}.tax-table .em{font-weight:800;color:#111827}.rate-table{min-width:520px}.rate-table td,.rate-table th{text-align:center}.rate-table td:first-child,.rate-table th:first-child{text-align:left}
 .caption{font-size:11px;color:var(--muted);margin:8px 1px 0;line-height:1.45}
 details{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}summary{cursor:pointer;font-size:13px;font-weight:700}a{color:var(--blue);text-decoration:none}footer{text-align:center;font-size:11px;color:#9ca3af;padding:16px 4px 0}
 @media(max-width:430px){main{padding:8px 8px 24px}.hero{padding:18px 15px}.hero h1{font-size:23px}.grid,.tax{grid-template-columns:1fr 1fr}.price{font-size:16px}.row{grid-template-columns:88px 1fr}}
@@ -54,48 +54,53 @@ details{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}summar
 </table>
 </div>
 <p class="caption">※ 가정: 현재 위례중앙푸르지오를 계속 보유, 두 부동산 모두 부부 50:50 공동명의. 위례중푸 공시가격 약 11.23억원, 현재 가구 보유세 약 280만원/년. 더 그리드의 향후 과세가액은 분양가의 70%로 가정한 시뮬레이션입니다.</p>
-<div class="explain">
-<p><b>왜 위례중푸 세금도 오르나?</b> 더 그리드가 주거용 주택으로 과세되면 2주택 구조가 되어, 현재 위례중푸에 적용되는 1세대 1주택 재산세 과표 혜택이 약해질 수 있기 때문입니다. 그래서 신규 오피스텔 세금만 더하는 것이 아니라 기존 집 세금 증가도 함께 반영했습니다.</p>
-</div>
+<div class="explain"><p><b>왜 위례중푸 세금도 오르나?</b> 더 그리드가 주거용 주택으로 과세되면 2주택 구조가 되어, 현재 위례중푸에 적용되는 1세대 1주택 재산세 과표 혜택이 약해질 수 있기 때문입니다. 그래서 신규 오피스텔 세금만 더하는 것이 아니라 기존 집 세금 증가도 함께 반영했습니다.</p></div>
 </section>
 
 <section class="section">
 <h2>취득세: 왜 체감 부담이 큰가</h2>
 <div class="tax"><div class="taxbox"><div class="l">예산 기준</div><div class="n">약 4.6%</div><div class="small">오피스텔 취득 기준으로 보수적 계산</div></div><div class="taxbox"><div class="l">7군 최고가</div><div class="n">약 0.99억</div><div class="small">분양가와 별도로 필요한 초기 현금</div></div></div>
-<div class="explain">
-<p><b>① 공동명의라고 총 취득세가 줄지는 않습니다.</b> 부부가 지분대로 나눠 낼 뿐 가구 전체 세액은 같습니다.</p>
-<p><b>② 분양가에 포함된 돈이 아닙니다.</b> 입주·소유권 취득 시점에 잔금과 별도로 수천만원~1억원 가까운 현금이 추가로 필요합니다.</p>
-<p><b>③ 실제 세액은 다소 달라질 수 있습니다.</b> 건물분 VAT 제외, 유상옵션, 2031년 당시 세법에 따라 최종 세액이 확정됩니다.</p>
-</div>
+<div class="explain"><p><b>① 공동명의라고 총 취득세가 줄지는 않습니다.</b> 부부가 지분대로 나눠 낼 뿐 가구 전체 세액은 같습니다.</p><p><b>② 분양가에 포함된 돈이 아닙니다.</b> 입주·소유권 취득 시점에 잔금과 별도로 수천만원~1억원 가까운 현금이 추가로 필요합니다.</p><p><b>③ 실제 세액은 다소 달라질 수 있습니다.</b> 건물분 VAT 제외, 유상옵션, 2031년 당시 세법에 따라 최종 세액이 확정됩니다.</p></div>
 </section>
 
 <section class="section">
 <h2>보유세: 왜 기존 집까지 영향을 받나</h2>
 <div class="tax"><div class="taxbox"><div class="l">현재 가구 부담</div><div class="n">약 280만/년</div><div class="small">위례 아파트 공동명의 기준</div></div><div class="taxbox"><div class="l">7군 중간값 추가 시</div><div class="n">약 1,028만/년</div><div class="small">가구 전체 보유세 추정</div></div></div>
-<div class="explain">
-<p><b>주거용 오피스텔로 과세되면 아파트와 함께 주택으로 합산</b>됩니다. 그래서 더 그리드 자체 재산세뿐 아니라 종부세 계산에도 영향을 줍니다.</p>
-<p><b>기존 위례 아파트의 1주택 혜택도 약해질 수 있습니다.</b> 현재 1세대 1주택에 적용되는 낮은 재산세 과표비율이 일반 주택 기준으로 바뀌면 기존 집 세금도 함께 증가할 수 있습니다.</p>
-<p><b>공동명의는 종부세 측면에선 유리</b>합니다. 각자 기본공제를 활용할 수 있어 한 사람 단독명의보다 세부담이 완만해지는 구조입니다.</p>
-</div>
+<div class="explain"><p><b>주거용 오피스텔로 과세되면 아파트와 함께 주택으로 합산</b>됩니다. 그래서 더 그리드 자체 재산세뿐 아니라 종부세 계산에도 영향을 줍니다.</p><p><b>기존 위례 아파트의 1주택 혜택도 약해질 수 있습니다.</b> 현재 1세대 1주택에 적용되는 낮은 재산세 과표비율이 일반 주택 기준으로 바뀌면 기존 집 세금도 함께 증가할 수 있습니다.</p><p><b>공동명의는 종부세 측면에선 유리</b>합니다. 각자 기본공제를 활용할 수 있어 한 사람 단독명의보다 세부담이 완만해지는 구조입니다.</p></div>
 <div class="warn">보유세는 더 그리드 과세가액을 분양가의 70%로 가정한 시뮬레이션입니다. 2031년 실제 공시·시가표준액과 세법에 따라 달라집니다.</div>
 </section>
 
 <section class="section">
 <h2>환금성: 6~7군을 조심하는 이유</h2>
 <div class="danger warn"><b>핵심은 “좋은 집인가”보다 “나중에 이 가격에 살 사람이 얼마나 많은가”입니다.</b></div>
-<ul class="point">
-<li><b>절대가격이 높아질수록 매수층이 급격히 줄어듭니다.</b> 7군은 17.5~21.6억원으로, 같은 예산에서 서울·수도권 아파트와 직접 비교됩니다.</li>
-<li><b>오피스텔은 아파트보다 매수 목적이 제한적입니다.</b> 실거주·투자 모두 가능하지만, 동일 가격대라면 아파트를 선호하는 수요가 많아 고가 구간에서 경쟁이 불리해질 수 있습니다.</li>
-<li><b>취득세와 보유세가 매수자의 진입비용을 높입니다.</b> 새 매수자 입장에서도 취득 즉시 수천만원의 세금이 들어가므로 가격이 높을수록 거래 장벽이 커집니다.</li>
-<li><b>대출 가능액과 담보평가도 변수입니다.</b> 입주 시점 금융규제·평가가치가 기대보다 낮으면 자기자금이 더 필요한 매수자는 줄어듭니다.</li>
-<li><b>최근 고가 대형 사례도 수요가 제한적이었습니다.</b> 정동 롯데캐슬 136은 25억원대 대형 오피스텔로 평균 경쟁률이 1.65:1 수준이었습니다.</li>
-</ul>
+<ul class="point"><li><b>절대가격이 높아질수록 매수층이 급격히 줄어듭니다.</b> 7군은 17.5~21.6억원으로, 같은 예산에서 서울·수도권 아파트와 직접 비교됩니다.</li><li><b>오피스텔은 아파트보다 매수 목적이 제한적입니다.</b> 실거주·투자 모두 가능하지만, 동일 가격대라면 아파트를 선호하는 수요가 많아 고가 구간에서 경쟁이 불리해질 수 있습니다.</li><li><b>취득세와 보유세가 매수자의 진입비용을 높입니다.</b> 새 매수자 입장에서도 취득 즉시 수천만원의 세금이 들어가므로 가격이 높을수록 거래 장벽이 커집니다.</li><li><b>대출 가능액과 담보평가도 변수입니다.</b> 입주 시점 금융규제·평가가치가 기대보다 낮으면 자기자금이 더 필요한 매수자는 줄어듭니다.</li><li><b>최근 고가 대형 사례도 수요가 제한적이었습니다.</b> 정동 롯데캐슬 136은 25억원대 대형 오피스텔로 평균 경쟁률이 1.65:1 수준이었습니다.</li></ul>
 <div class="explain"><b>따라서 4~5군은 ‘송파 입지 프리미엄 + 가족형 평면’으로 설명하기 상대적으로 쉽지만, 6~7군은 절대가격이 올라가면서 향후 매도 시 할인 요구가 커질 가능성을 더 봐야 합니다.</b></div>
 </section>
 
 <section class="section">
 <h2>최근 유사 분양 사례</h2>
-<div class="row"><b>평촌 르씨엘</b><span>900실 · 47~119㎡ · 84㎡ 약 10.1억. 더 그리드와 가장 유사한 대단지·중대형 구조</span></div>
+<div class="row"><b>평촌 르씨엘</b><span>900실 · 47~119㎡ · 84㎡ 약 10.1억. <b>900실 모집에 2,319건 접수</b>로 단순 평균 약 <b>2.58:1</b>, 최고 <b>11.5:1</b>(84B 거주자 우선). 더 그리드와 가장 유사한 대단지·중대형 구조</span></div>
+<details>
+<summary>평촌 르씨엘 타입별 경쟁률 보기</summary>
+<div class="table-wrap" style="margin-top:9px">
+<table class="tax-table rate-table">
+<thead><tr><th>타입</th><th>거주자 우선</th><th>기타</th></tr></thead>
+<tbody>
+<tr><td>47A</td><td class="em">11.13 : 1</td><td>6.28 : 1</td></tr>
+<tr><td>84A</td><td>7.75 : 1</td><td>3.93 : 1</td></tr>
+<tr><td>84B</td><td class="em">11.50 : 1</td><td>5.36 : 1</td></tr>
+<tr><td>84C</td><td>2.63 : 1</td><td>1.28 : 1</td></tr>
+<tr><td>96A</td><td>7.33 : 1</td><td>3.13 : 1</td></tr>
+<tr><td>118A</td><td>2.38 : 1</td><td>미달 11실</td></tr>
+<tr><td>118A-1</td><td>3.50 : 1</td><td>1.56 : 1</td></tr>
+<tr><td>119A</td><td>4.76 : 1</td><td>2.12 : 1</td></tr>
+<tr><td>119B</td><td>9.47 : 1</td><td>4.65 : 1</td></tr>
+</tbody>
+</table>
+</div>
+<p class="caption">※ 거주자 우선 경쟁률은 해당 우선공급 배정분 기준. 전체 900실에 총 2,319건이 접수됐으며 최고 경쟁률은 84B 거주자 우선 11.5:1입니다.</p>
+<div class="explain"><p><b>더 그리드에 주는 시사점:</b> 평촌에서도 84B·47A처럼 중형 인기 타입은 두 자릿수 경쟁률이 나왔지만, 118A 대형은 기타 접수에서 미달이 발생했습니다. 즉 대형 주거형 오피스텔은 단지 전체 흥행과 별개로 <b>절대가격과 타입에 따라 수요 차이가 크게 벌어질 수 있다</b>는 점이 6~7군 판단에 중요합니다.</p></div>
+</details>
 <div class="row"><b>정동 롯데캐슬 136</b><span>118~119㎡ · 25억대 · 평균 1.65:1. 고가 대형 수요 제한을 보여주는 사례</span></div>
 <div class="row"><b>이문 IM594</b><span>594실 · 평균 2.1:1. 서울·브랜드·대단지라도 자동 완판은 아님</span></div>
 <div class="row"><b>동탄 디에트르</b><span>75~84㎡ · 84㎡ 약 9억. 가족형 오피스텔의 실수요는 존재</span></div>
@@ -109,14 +114,14 @@ details{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}summar
 <div class="row"><b>7군</b><span>20억원 전후. 취득세 약 1억원, 연 보유세 1천만원 안팎, 향후 매수층 제한을 함께 봐야 함</span></div>
 <details><summary>출처 보기</summary><ul class="point">
 <li><a href="https://www.hankyung.com/article/2026083144641">송파 더 그리드 관련 기사</a></li>
-<li><a href="https://www.hankyung.com/article/202511042586i">평촌 롯데캐슬 르씨엘</a></li>
+<li><a href="https://www.hankyung.com/article/202511042586i">평촌 롯데캐슬 르씨엘 — 전체 접수·최고 경쟁률</a></li>
+<li><a href="https://www.ziprader.com/private/notices/e797160d-1727-4f74-9d6d-dc15da18b79a">평촌 롯데캐슬 르씨엘 — 타입별 경쟁률</a></li>
 <li><a href="https://www.sangga114.co.kr/document/news_column_detail?documentSrl=27880">정동 롯데캐슬 136</a></li>
 <li><a href="https://www.etoday.co.kr/news/view/2333779">이문 아이파크자이 IM594</a></li>
 <li><a href="https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7735&mi=40377">국세청 종합부동산세 안내</a></li>
 <li><a href="https://www.law.go.kr/">국가법령정보센터</a></li>
 </ul></details>
 </section>
-
 <footer>2026년 9월 기준 · 비교 및 자금계획용</footer>
 </main></body>
 </html>
