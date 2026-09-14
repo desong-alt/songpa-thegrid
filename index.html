@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>송파 더 그리드 요약</title>
+<style>
+:root{
+  --bg:#f3f4f6;--card:#fff;--text:#111827;--muted:#6b7280;
+  --line:#e5e7eb;--blue:#2563eb;--green:#047857;--amber:#b45309;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif}
+main{max-width:720px;margin:auto;padding:12px 10px 28px}
+.hero{background:#111827;color:#fff;border-radius:18px;padding:20px 18px}
+.hero h1{font-size:26px;line-height:1.2;margin:0 0 8px}
+.hero p{font-size:13px;line-height:1.5;margin:0;color:#d1d5db}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
+.chip{font-size:12px;padding:5px 8px;border-radius:999px;background:#1f2937}
+.section{margin-top:10px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}
+h2{font-size:18px;margin:0 0 10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.card{border:1px solid var(--line);border-radius:13px;padding:12px;background:#fff}
+.card h3{font-size:15px;margin:0 0 4px}
+.price{font-size:18px;font-weight:800;margin-bottom:6px}
+.small{font-size:12px;color:var(--muted);line-height:1.45}
+.badge{display:inline-block;font-size:11px;font-weight:700;border-radius:999px;padding:4px 7px;margin-top:7px}
+.good{background:#ecfdf5;color:var(--green)}
+.mid{background:#eff6ff;color:var(--blue)}
+.risk{background:#fff7ed;color:var(--amber)}
+.row{display:grid;grid-template-columns:95px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px}
+.row:last-child{border-bottom:0}
+.row b{font-size:13px}
+.tax{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.taxbox{border-radius:13px;padding:12px;background:#f9fafb;border:1px solid var(--line)}
+.taxbox .n{font-size:20px;font-weight:800}
+.taxbox .l{font-size:12px;color:var(--muted)}
+.warn{margin-top:8px;padding:10px 11px;border-radius:12px;background:#fff7ed;color:#7c2d12;font-size:12px;line-height:1.5}
+details{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}
+summary{cursor:pointer;font-size:13px;font-weight:700}
+ul{padding-left:18px;margin:8px 0 0}
+li{font-size:12px;color:var(--muted);margin:5px 0}
+a{color:var(--blue);text-decoration:none}
+footer{text-align:center;font-size:11px;color:#9ca3af;padding:16px 4px 0}
+@media(max-width:430px){
+  main{padding:8px 8px 24px}
+  .hero{padding:18px 15px}
+  .hero h1{font-size:23px}
+  .grid,.tax{grid-template-columns:1fr 1fr}
+  .price{font-size:17px}
+}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+  <h1>송파 더 그리드<br>핵심 비교 요약</h1>
+  <p>최근 주거형 오피스텔 사례 + 4~7군 가격 + 취득세·보유세를 모바일용으로 압축 정리</p>
+  <div class="chips">
+    <span class="chip">1,393실</span>
+    <span class="chip">34~119㎡</span>
+    <span class="chip">5군 균형</span>
+    <span class="chip">7군 환금성 주의</span>
+  </div>
+</section>
+
+<section class="section">
+  <h2>4~7군 한눈에 보기</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>4군</h3><div class="price">11.9~13.6억</div>
+      <div class="small">취득세 약 0.55~0.62억<br>총 보유세 약 668~750만/년</div>
+      <span class="badge good">자금 안정성</span>
+    </div>
+    <div class="card">
+      <h3>5군</h3><div class="price">13.3~16.6억</div>
+      <div class="small">취득세 약 0.61~0.76억<br>총 보유세 약 737~892만/년</div>
+      <span class="badge good">가장 균형적</span>
+    </div>
+    <div class="card">
+      <h3>6군</h3><div class="price">15.0~19.1억</div>
+      <div class="small">취득세 약 0.69~0.88억<br>총 보유세 약 816~1,006만/년</div>
+      <span class="badge mid">선별 접근</span>
+    </div>
+    <div class="card">
+      <h3>7군</h3><div class="price">17.5~21.6억</div>
+      <div class="small">취득세 약 0.80~0.99억<br>총 보유세 약 932~1,123만/년</div>
+      <span class="badge risk">환금성 주의</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>최근 유사 분양 사례</h2>
+  <div class="row"><b>평촌 르씨엘</b><span>900실 · 47~119㎡ · 84㎡ 약 10.1억 · 가장 유사한 비교군</span></div>
+  <div class="row"><b>정동 롯데캐슬 136</b><span>118~119㎡ · 25억대 · 평균 1.65:1 → 고가 대형 수요 제한 사례</span></div>
+  <div class="row"><b>이문 IM594</b><span>594실 · 평균 2.1:1 · 서울 대단지도 자동 완판은 아님</span></div>
+  <div class="row"><b>동탄 디에트르</b><span>75~84㎡ · 84㎡ 약 9억 · 가족형 오피스텔 수요 확인</span></div>
+</section>
+
+<section class="section">
+  <h2>세금 핵심</h2>
+  <div class="tax">
+    <div class="taxbox">
+      <div class="l">취득세 예산</div>
+      <div class="n">약 4.6%</div>
+      <div class="small">분양가 기준 보수적 추정<br>공동명의여도 총액은 동일</div>
+    </div>
+    <div class="taxbox">
+      <div class="l">보유세 기준</div>
+      <div class="n">2주택 합산</div>
+      <div class="small">주거용 사용 시 아파트와 주택분 과세 체계 적용</div>
+    </div>
+  </div>
+  <div class="warn">
+    보유세는 현재 위례 아파트 공동명의를 유지하고, 더 그리드도 50:50 공동명의로 취득하는 가정입니다.
+    더 그리드 과세가액은 분양가의 70%로 가정했으며 2031년 실제 세법·과세가액에 따라 달라질 수 있습니다.
+  </div>
+</section>
+
+<section class="section">
+  <h2>판단 요약</h2>
+  <div class="row"><b>4군</b><span>세금·절대가격 부담이 가장 낮아 안전한 선택</span></div>
+  <div class="row"><b>5군</b><span>84㎡ 포함. 상품성·가격·세부담의 균형이 가장 좋음</span></div>
+  <div class="row"><b>6군</b><span>17억 전후부터 오피스텔 절대가격 부담이 커짐</span></div>
+  <div class="row"><b>7군</b><span>20억 전후로 향후 매수층과 환금성 리스크가 가장 큼</span></div>
+
+  <details>
+    <summary>출처 보기</summary>
+    <ul>
+      <li><a href="https://www.hankyung.com/article/2026083144641">송파 더 그리드 관련 기사</a></li>
+      <li><a href="https://www.hankyung.com/article/202511042586i">평촌 롯데캐슬 르씨엘</a></li>
+      <li><a href="https://www.sangga114.co.kr/document/news_column_detail?documentSrl=27880">정동 롯데캐슬 136</a></li>
+      <li><a href="https://www.etoday.co.kr/news/view/2333779">이문 아이파크자이 IM594</a></li>
+      <li><a href="https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7735&mi=40377">국세청 종합부동산세 안내</a></li>
+    </ul>
+  </details>
+</section>
+
+<footer>2026년 9월 기준 · 비교 및 자금계획용</footer>
+</main>
+</body>
+</html>
