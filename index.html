@@ -16,15 +16,16 @@ main{max-width:720px;margin:auto;padding:10px 9px 28px}.hero{background:#111827;
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px}.tax-table{width:100%;min-width:590px;border-collapse:collapse;background:#fff;table-layout:fixed}.tax-table th,.tax-table td{padding:8px 6px;border-bottom:1px solid var(--line);font-size:11.5px;text-align:right;white-space:nowrap}.tax-table th:first-child,.tax-table td:first-child{text-align:left;position:sticky;left:0;background:#fff;z-index:1;width:118px;min-width:118px;max-width:118px;white-space:normal;line-height:1.3}.tax-table th:not(:first-child),.tax-table td:not(:first-child){width:102px}.tax-table thead th{background:#f8fafc;font-weight:700;color:#374151}.tax-table thead th:first-child{background:#f8fafc}.tax-table tbody tr:last-child td{border-bottom:0}.tax-table .em{font-weight:800;color:#111827}.rate-table{min-width:430px;table-layout:auto}.rate-table td,.rate-table th{text-align:center}.rate-table td:first-child,.rate-table th:first-child{text-align:left;width:auto;min-width:64px;max-width:none;white-space:nowrap}
 .scroll-hint{font-size:10.5px;color:#9ca3af;text-align:right;margin:-3px 2px 6px}.caption{font-size:11px;color:var(--muted);margin:8px 1px 0;line-height:1.45}
 .scenario{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:8px 0}.scenario .box{border:1px solid var(--line);border-radius:11px;padding:9px;background:#f9fafb}.scenario .box b{font-size:12px}.scenario .box span{display:block;font-size:10.5px;color:var(--muted);line-height:1.4;margin-top:3px}
+.size-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.size-box{border:1px solid var(--line);border-radius:13px;padding:12px;background:#fff}.size-box .k{font-size:11px;color:var(--muted)}.size-box .v{font-size:19px;font-weight:800;margin:2px 0}.size-box p{font-size:12px;color:#4b5563;margin:4px 0 0}.size-box strong{color:#111827}
 details{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}summary{cursor:pointer;font-size:13px;font-weight:700}a{color:var(--blue);text-decoration:none}footer{text-align:center;font-size:11px;color:#9ca3af;padding:16px 4px 0}
-@media(max-width:430px){main{padding:8px 8px 24px}.hero{padding:18px 15px}.hero h1{font-size:23px}.grid,.tax{grid-template-columns:1fr 1fr}.price{font-size:16px}.row{grid-template-columns:88px 1fr}.tax-table{min-width:550px}.tax-table th,.tax-table td{padding:7px 5px;font-size:11px}.tax-table th:first-child,.tax-table td:first-child{width:104px;min-width:104px;max-width:104px}.tax-table th:not(:first-child),.tax-table td:not(:first-child){width:96px}.rate-table{min-width:410px}.rate-table td:first-child,.rate-table th:first-child{width:auto;min-width:58px;max-width:none}.scenario{grid-template-columns:1fr}}
+@media(max-width:430px){main{padding:8px 8px 24px}.hero{padding:18px 15px}.hero h1{font-size:23px}.grid,.tax,.size-grid{grid-template-columns:1fr 1fr}.price{font-size:16px}.row{grid-template-columns:88px 1fr}.tax-table{min-width:550px}.tax-table th,.tax-table td{padding:7px 5px;font-size:11px}.tax-table th:first-child,.tax-table td:first-child{width:104px;min-width:104px;max-width:104px}.tax-table th:not(:first-child),.tax-table td:not(:first-child){width:96px}.rate-table{min-width:410px}.rate-table td:first-child,.rate-table th:first-child{width:auto;min-width:58px;max-width:none}.scenario{grid-template-columns:1fr}.size-box .v{font-size:17px}}
 </style>
 </head>
 <body><main>
 <section class="hero">
 <h1>송파 더 그리드<br>분양·세금·환금성 분석</h1>
 <p>최근 유사 오피스텔 사례와 4~7군 가격, 취득세·보유세, 향후 매도 난이도를 함께 본 요약본</p>
-<div class="chips"><span class="chip">1,393실</span><span class="chip">34~119㎡</span><span class="chip">5군 균형</span><span class="chip">6~7군 환금성 체크</span></div>
+<div class="chips"><span class="chip">1,393실</span><span class="chip">34~119㎡</span><span class="chip">6군≈아파트 25평</span><span class="chip">7군≈아파트 33평</span></div>
 </section>
 
 <section class="section">
@@ -32,18 +33,28 @@ details{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}summar
 <div class="grid">
 <div class="card"><h3>4군</h3><div class="price">11.9~13.6억</div><div class="small">취득세 약 0.55~0.62억<br>총 보유세 약 668~750만/년</div><span class="badge good">자금 안정성</span></div>
 <div class="card"><h3>5군</h3><div class="price">13.3~16.6억</div><div class="small">취득세 약 0.61~0.76억<br>총 보유세 약 737~892만/년</div><span class="badge good">가장 균형적</span></div>
-<div class="card"><h3>6군</h3><div class="price">15.0~19.1억</div><div class="small">취득세 약 0.69~0.88억<br>총 보유세 약 816~1,006만/년</div><span class="badge mid">선별 접근</span></div>
-<div class="card"><h3>7군</h3><div class="price">17.5~21.6억</div><div class="small">취득세 약 0.80~0.99억<br>총 보유세 약 932~1,123만/년</div><span class="badge risk">환금성 주의</span></div>
+<div class="card"><h3>6군</h3><div class="price">15.0~19.1억</div><div class="small">실사용 크기상 아파트 25평급<br>총 보유세 약 816~1,006만/년</div><span class="badge mid">25평급 대체재</span></div>
+<div class="card"><h3>7군</h3><div class="price">17.5~21.6억</div><div class="small">실사용 크기상 아파트 33평급<br>총 보유세 약 932~1,123만/년</div><span class="badge mid">33평급 대체재</span></div>
 </div>
+</section>
+
+<section class="section">
+<h2>6·7군은 ‘대형 오피스텔’보다 아파트 대체재로 봐야 함</h2>
+<div class="size-grid">
+<div class="size-box"><div class="k">6군 실사용 체감</div><div class="v">≈ 아파트 25평형</div><p><strong>전형적인 중소형 가족형</strong>에 가까워 1~2자녀 가구·다운사이징 수요를 받을 수 있습니다.</p></div>
+<div class="size-box"><div class="k">7군 실사용 체감</div><div class="v">≈ 아파트 33평형</div><p><strong>국민평형급 가족형</strong>에 가까워 ‘초대형 오피스텔’로만 보는 것은 지나치게 보수적입니다.</p></div>
+</div>
+<div class="explain">
+<p><b>이 점을 반영하면 6~7군의 환금성 평가는 이전보다 조금 좋아집니다.</b> 특히 7군은 119㎡라는 숫자만 보면 매우 큰 오피스텔처럼 보이지만, 실제 주거 효율이 아파트 33평형과 유사하다면 향후 매수자는 ‘고가 오피스텔’만 찾는 소수층이 아니라 <b>33평형 아파트를 찾는 일반 가족 실수요</b>까지 포함될 수 있습니다.</p>
+<p><b>다만 비교 기준도 바뀌어야 합니다.</b> 6군은 인근 25평형 아파트, 7군은 인근 33평형 아파트와 가격을 직접 비교해야 합니다. 같은 실사용 면적에서 더 그리드가 아파트보다 충분히 싸야 오피스텔의 취득세·대출·관리비·환금성 약점을 상쇄할 수 있습니다.</p>
+</div>
+<div class="warn"><b>핵심:</b> 7군의 문제는 ‘너무 큰 평형이라 살 사람이 없다’가 아니라, <b>20억원 안팎의 가격으로 33평형 아파트와 경쟁해야 한다</b>는 점입니다. 따라서 향후 가치는 면적보다 ‘인근 33평 아파트 대비 할인율’이 더 중요합니다.</div>
 </section>
 
 <section class="section">
 <h2>위례중푸 + 더 그리드 합산 세금</h2>
 <div class="scroll-hint">← 좌우로 밀어 군별 비교 →</div>
-<div class="table-wrap">
-<table class="tax-table">
-<thead><tr><th>구분</th><th>4군</th><th>5군</th><th>6군</th><th>7군</th></tr></thead>
-<tbody>
+<div class="table-wrap"><table class="tax-table"><thead><tr><th>구분</th><th>4군</th><th>5군</th><th>6군</th><th>7군</th></tr></thead><tbody>
 <tr><td>분양가 중간값</td><td class="em">12.74억</td><td class="em">14.97억</td><td class="em">17.02억</td><td class="em">19.51억</td></tr>
 <tr><td>취득세 등 약 4.6%</td><td>5,860만</td><td>6,890만</td><td>7,830만</td><td>8,980만</td></tr>
 <tr><td>공동명의 1인당 취득세</td><td>2,930만</td><td>3,445만</td><td>3,915만</td><td>4,490만</td></tr>
@@ -52,11 +63,9 @@ details{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}summar
 <tr><td>종부세 + 농특세</td><td>68만</td><td>117만</td><td>159만</td><td>211만</td></tr>
 <tr><td class="em">두 부동산 합산 보유세</td><td class="em">709만/년</td><td class="em">816만/년</td><td class="em">911만/년</td><td class="em">1,028만/년</td></tr>
 <tr><td>현재 약 280만 대비 증가</td><td>+429만</td><td>+536만</td><td>+631만</td><td>+748만</td></tr>
-</tbody>
-</table>
-</div>
+</tbody></table></div>
 <p class="caption">※ 가정: 현재 위례중앙푸르지오를 계속 보유, 두 부동산 모두 부부 50:50 공동명의. 위례중푸 공시가격 약 11.23억원, 현재 가구 보유세 약 280만원/년. 더 그리드의 향후 과세가액은 분양가의 70%로 가정한 시뮬레이션입니다.</p>
-<div class="explain"><p><b>왜 위례중푸 세금도 오르나?</b> 더 그리드가 주거용 주택으로 과세되면 2주택 구조가 되어, 현재 위례중푸에 적용되는 1세대 1주택 재산세 과표 혜택이 약해질 수 있기 때문입니다. 그래서 신규 오피스텔 세금만 더하는 것이 아니라 기존 집 세금 증가도 함께 반영했습니다.</p></div>
+<div class="explain"><p><b>왜 위례중푸 세금도 오르나?</b> 더 그리드가 주거용 주택으로 과세되면 2주택 구조가 되어, 현재 위례중푸에 적용되는 1세대 1주택 재산세 과표 혜택이 약해질 수 있기 때문입니다.</p></div>
 </section>
 
 <section class="section">
@@ -73,10 +82,16 @@ details{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}summar
 </section>
 
 <section class="section">
-<h2>환금성: 6~7군을 조심하는 이유</h2>
-<div class="danger warn"><b>핵심은 “좋은 집인가”보다 “나중에 이 가격에 살 사람이 얼마나 많은가”입니다.</b></div>
-<ul class="point"><li><b>절대가격이 높아질수록 매수층이 급격히 줄어듭니다.</b> 7군은 17.5~21.6억원으로, 같은 예산에서 서울·수도권 아파트와 직접 비교됩니다.</li><li><b>오피스텔은 아파트보다 매수 목적이 제한적입니다.</b> 실거주·투자 모두 가능하지만, 동일 가격대라면 아파트를 선호하는 수요가 많아 고가 구간에서 경쟁이 불리해질 수 있습니다.</li><li><b>취득세와 보유세가 매수자의 진입비용을 높입니다.</b> 새 매수자 입장에서도 취득 즉시 수천만원의 세금이 들어가므로 가격이 높을수록 거래 장벽이 커집니다.</li><li><b>대출 가능액과 담보평가도 변수입니다.</b> 입주 시점 금융규제·평가가치가 기대보다 낮으면 자기자금이 더 필요한 매수자는 줄어듭니다.</li><li><b>최근 고가 대형 사례도 수요가 제한적이었습니다.</b> 정동 롯데캐슬 136은 25억원대 대형 오피스텔로 평균 경쟁률이 1.65:1 수준이었습니다.</li></ul>
-<div class="explain"><b>따라서 4~5군은 ‘송파 입지 프리미엄 + 가족형 평면’으로 설명하기 상대적으로 쉽지만, 6~7군은 절대가격이 올라가면서 향후 매도 시 할인 요구가 커질 가능성을 더 봐야 합니다.</b></div>
+<h2>환금성: 6~7군을 다시 해석하면</h2>
+<div class="danger warn"><b>6~7군은 단순히 ‘면적 큰 오피스텔’이라서 환금성이 나쁜 것은 아닙니다. 실사용 면적이 각각 25평·33평 아파트급이면 가족 실수요 기반은 오히려 넓습니다.</b></div>
+<ul class="point">
+<li><b>6군 ≈ 아파트 25평형:</b> 중소형 실수요가 넓어 고가 오피스텔 중에서는 상대적으로 환금성이 방어될 수 있습니다.</li>
+<li><b>7군 ≈ 아파트 33평형:</b> 국민평형 수요층과 겹치므로 ‘119㎡라 너무 커서 매수층이 좁다’는 평가는 완화할 필요가 있습니다.</li>
+<li><b>다만 같은 예산의 아파트와 직접 경쟁:</b> 7군 중간값 약 19.5억원이면 매수자는 자연스럽게 인근 33평형 아파트와 비교합니다. 아파트 대비 가격 할인폭이 작으면 오피스텔의 법적·금융상 단점이 부각됩니다.</li>
+<li><b>가격 상승 시에도 할인율이 중요:</b> 인근 33평 아파트가 25억원이라면 더 그리드 7군이 21~23억원이어도 경쟁력이 있지만, 인근 33평 아파트가 21~22억원이면 오피스텔을 선택할 유인이 약해집니다.</li>
+<li><b>취득세·대출·관리비는 여전히 약점:</b> 실사용 면적이 같아도 아파트와 동일한 상품이 아니므로 일정 할인율은 계속 요구될 가능성이 높습니다.</li>
+</ul>
+<div class="explain"><b>따라서 환금성 순위는 ‘5군 우위, 6군 선별, 7군 주의’처럼 단순화하기보다, 6·7군 모두 해당 면적대 아파트와의 가격 차이를 같이 봐야 합니다. 특히 7군은 33평형 대체재라는 점 때문에 이전 평가보다 한 단계 상향해 볼 여지가 있습니다.</b></div>
 </section>
 
 <section class="section">
@@ -85,50 +100,51 @@ details{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}summar
 <div class="row"><b>위례 한화 오벨리스크</b><span>65.6~65.9㎡는 약 6.9~7.25억, 77.6㎡는 거래 편차가 크지만 8.9~11.5억 거래가 확인됨</span></div>
 <div class="row"><b>문정 파크하비오</b><span>2026년 7월 전용 58.84㎡ <b>7.3억원</b>, 49㎡ 전후 약 4.6~4.9억원. 송파 오피스텔의 거래 유동성 참고군</span></div>
 <div class="row"><b>평촌 르씨엘</b><span>900실 · 47~119㎡ · 84㎡ 약 10.1억. <b>900실 모집에 2,319건 접수</b>로 단순 평균 약 <b>2.58:1</b>, 최고 <b>11.5:1</b>(84B 거주자 우선)</span></div>
-<details>
-<summary>평촌 르씨엘 타입별 경쟁률 보기</summary>
+<details><summary>평촌 르씨엘 타입별 경쟁률 보기</summary>
 <div class="table-wrap" style="margin-top:9px"><table class="tax-table rate-table"><thead><tr><th>타입</th><th>거주자 우선</th><th>기타</th></tr></thead><tbody>
 <tr><td>47A</td><td class="em">11.13 : 1</td><td>6.28 : 1</td></tr><tr><td>84A</td><td>7.75 : 1</td><td>3.93 : 1</td></tr><tr><td>84B</td><td class="em">11.50 : 1</td><td>5.36 : 1</td></tr><tr><td>84C</td><td>2.63 : 1</td><td>1.28 : 1</td></tr><tr><td>96A</td><td>7.33 : 1</td><td>3.13 : 1</td></tr><tr><td>118A</td><td>2.38 : 1</td><td>미달 11실</td></tr><tr><td>118A-1</td><td>3.50 : 1</td><td>1.56 : 1</td></tr><tr><td>119A</td><td>4.76 : 1</td><td>2.12 : 1</td></tr><tr><td>119B</td><td>9.47 : 1</td><td>4.65 : 1</td></tr>
 </tbody></table></div>
-<p class="caption">※ 거주자 우선 경쟁률은 해당 우선공급 배정분 기준. 대형 타입은 중형보다 수요 편차가 컸습니다.</p>
+<p class="caption">※ 거주자 우선 경쟁률은 해당 우선공급 배정분 기준. 대형 타입은 중형보다 수요 편차가 컸습니다. 다만 더 그리드 7군은 실사용상 아파트 33평급이라는 점을 별도로 고려해야 합니다.</p>
 </details>
-<div class="row"><b>정동 롯데캐슬 136</b><span>118~119㎡ · 25억대 · 평균 1.65:1. 고가 대형 수요 제한을 보여주는 사례</span></div>
+<div class="row"><b>정동 롯데캐슬 136</b><span>118~119㎡ · 25억대 · 평균 1.65:1. 고가 대형 수요 제한 사례이지만, 더 그리드 7군과는 실사용 평형 구조가 다를 수 있어 단순 비교는 주의</span></div>
 </section>
 
 <section class="section">
 <h2>2031~2036 시세차익 시나리오</h2>
-<div class="explain"><p><b>인근 사례의 핵심:</b> 지웰·한화처럼 가족형 오피스텔도 장기 상승은 가능했지만, 더 그리드는 이미 높은 분양가에서 출발합니다. 따라서 과거 상승률을 그대로 적용하지 않고 6~7군에는 별도의 환금성 할인을 두었습니다.</p></div>
+<div class="explain"><p><b>실사용 평형을 반영해 6~7군 가정을 상향 조정했습니다.</b> 6군은 25평급, 7군은 33평급 아파트 대체 수요가 있다는 점을 반영해 이전보다 환금성 할인을 완화했습니다. 다만 오피스텔 특성상 같은 면적 아파트보다는 일정 가격 할인이 필요하다고 봤습니다.</p></div>
 <div class="scenario">
-<div class="box"><b>보수 시나리오</b><span>4~5군: 2031 분양가의 95%, 이후 연 2%<br>6군: 92%·연 1.5% / 7군: 90%·연 1%</span></div>
-<div class="box"><b>기준 시나리오</b><span>4~5군: 2031 +10%, 이후 연 3.5%<br>6군: +7%·연 3.2% / 7군: +5%·연 3%</span></div>
-<div class="box"><b>낙관 시나리오</b><span>4~5군: 2031 +20%, 이후 연 5%<br>6군: +18%·연 4.5% / 7군: +15%·연 4%</span></div>
+<div class="box"><b>보수 시나리오</b><span>4~5군: 2031 분양가의 95%, 이후 연 2%<br>6군: 94%·연 1.8% / 7군: 93%·연 1.5%</span></div>
+<div class="box"><b>기준 시나리오</b><span>4~5군: 2031 +10%, 이후 연 3.5%<br>6군: +9%·연 3.4% / 7군: +8%·연 3.3%</span></div>
+<div class="box"><b>낙관 시나리오</b><span>4~5군: 2031 +20%, 이후 연 5%<br>6군: +20%·연 4.7% / 7군: +20%·연 4.5%</span></div>
 </div>
 <h3>기준 시나리오: 2036년에 얼마가 될까</h3>
 <div class="scroll-hint">← 좌우로 밀어 군별 비교 →</div>
 <div class="table-wrap"><table class="tax-table"><thead><tr><th>구분</th><th>4군</th><th>5군</th><th>6군</th><th>7군</th></tr></thead><tbody>
+<tr><td>실사용 비교</td><td>-</td><td>84㎡급</td><td class="em">아파트 25평급</td><td class="em">아파트 33평급</td></tr>
 <tr><td>분양가 중간값</td><td>12.74억</td><td>14.97억</td><td>17.02억</td><td>19.51억</td></tr>
-<tr><td>2031 예상가</td><td class="em">14.01억</td><td class="em">16.47억</td><td class="em">18.21억</td><td class="em">20.49억</td></tr>
-<tr><td>2036 예상가</td><td class="em">16.64억</td><td class="em">19.56억</td><td class="em">21.32억</td><td class="em">23.75억</td></tr>
+<tr><td>2031 예상가</td><td class="em">14.01억</td><td class="em">16.47억</td><td class="em">18.55억</td><td class="em">21.07억</td></tr>
+<tr><td>2036 예상가</td><td class="em">16.64억</td><td class="em">19.56억</td><td class="em">21.93억</td><td class="em">24.78억</td></tr>
 <tr><td>취득세+중도금이자+5년 추가보유세</td><td>1.26억</td><td>1.50억</td><td>1.71억</td><td>1.97억</td></tr>
-<tr><td>2036 순차익*</td><td class="em">+2.64억</td><td class="em">+3.09억</td><td class="em">+2.59억</td><td class="em">+2.27억</td></tr>
-<tr><td>50% 대출 4.5% 유지 시**</td><td>+1.21억</td><td>+1.41억</td><td>+0.67억</td><td class="em">+0.07억</td></tr>
+<tr><td>2036 순차익*</td><td class="em">+2.64억</td><td class="em">+3.09억</td><td class="em">+3.20억</td><td class="em">+3.30억</td></tr>
+<tr><td>분양가 대비 순차익률</td><td>20.8%</td><td>20.6%</td><td>18.8%</td><td>16.9%</td></tr>
+<tr><td>50% 대출 4.5% 유지 시**</td><td>+1.21억</td><td>+1.40억</td><td>+1.28억</td><td>+1.11억</td></tr>
 </tbody></table></div>
-<p class="caption">* 순차익 = 2036 예상매도가 - 분양가 - 취득세 - 2031년까지 중도금이자 - 2031~2036의 현재 대비 추가 보유세. 양도소득세·중개수수료·옵션비·관리비는 제외.<br>** 입주 후 분양가의 50%를 연 4.5% 대출로 5년간 계속 보유한다고 단순 가정한 이자까지 차감. 실제 대출잔액·금리에 따라 크게 달라집니다.</p>
+<p class="caption">* 순차익 = 2036 예상매도가 - 분양가 - 취득세 - 2031년까지 중도금이자 - 2031~2036의 현재 대비 추가 보유세. 양도소득세·중개수수료·옵션비·관리비는 제외.<br>** 입주 후 분양가의 50%를 연 4.5% 대출로 5년간 계속 보유한다고 단순 가정한 이자까지 차감.</p>
 <h3>시나리오별 순차익 범위</h3>
 <div class="table-wrap"><table class="tax-table"><thead><tr><th>2036 순차익</th><th>4군</th><th>5군</th><th>6군</th><th>7군</th></tr></thead><tbody>
-<tr><td>보수</td><td>-0.64억</td><td>-0.77억</td><td>-1.86억</td><td class="em">-3.03억</td></tr>
-<tr><td>기준</td><td class="em">+2.64억</td><td class="em">+3.09억</td><td>+2.59억</td><td>+2.27억</td></tr>
-<tr><td>낙관</td><td>+5.51억</td><td class="em">+6.46억</td><td>+6.30억</td><td>+5.82억</td></tr>
+<tr><td>보수</td><td>-0.64억</td><td>-0.77억</td><td>-1.24억</td><td class="em">-1.93억</td></tr>
+<tr><td>기준</td><td class="em">+2.64억</td><td class="em">+3.09억</td><td class="em">+3.20억</td><td class="em">+3.30억</td></tr>
+<tr><td>낙관</td><td>+5.51억</td><td>+6.46억</td><td>+6.97억</td><td class="em">+7.70억</td></tr>
 </tbody></table></div>
-<div class="warn"><b>해석:</b> 기준 시나리오에서는 5군이 절대 순차익과 환금성의 균형이 가장 좋습니다. 6~7군은 분양가가 높아 계산상 매도가가 올라가도, 대형 타입의 매수층 축소를 반영하면 수익률이 둔화됩니다. 특히 7군은 입주 후 50% 대출을 유지하면 기준 시나리오에서도 이자 반영 후 거의 손익분기 수준입니다.</div>
+<div class="warn"><b>해석:</b> 실사용 평형을 반영하면 6~7군의 절대 시세차익 잠재력은 이전보다 좋아집니다. 다만 투자 효율은 여전히 4~5군이 높습니다. 기준 시나리오에서 7군은 절대 순차익이 가장 크지만 분양가 대비 순차익률은 약 16.9%로 가장 낮고, 33평 아파트와의 가격 경쟁이 핵심 변수입니다.</div>
 </section>
 
 <section class="section">
 <h2>최종 판단</h2>
 <div class="row"><b>4군</b><span>보수적 시장에서도 손실폭이 상대적으로 작고 자금 안정성이 가장 좋음</span></div>
-<div class="row"><b>5군</b><span>84㎡ 중심 상품성, 기준 시나리오 순차익, 환금성을 함께 보면 가장 균형적</span></div>
-<div class="row"><b>6군</b><span>상승 여력은 있지만 대형·고가 프리미엄을 시장이 인정해야 수익이 남음</span></div>
-<div class="row"><b>7군</b><span>절대 매도가가 20억원대 중후반까지 올라야 의미 있는 차익이 생겨 가장 공격적인 선택</span></div>
+<div class="row"><b>5군</b><span>가격·세부담·환금성의 균형이 가장 좋고 투자 효율도 높음</span></div>
+<div class="row"><b>6군</b><span>25평 아파트급 실사용성을 감안하면 이전보다 긍정적. 다만 17억원 전후 가격에서 인근 25평 아파트 대비 할인폭 확인 필요</span></div>
+<div class="row"><b>7군</b><span>33평 아파트급 실사용성을 감안하면 단순 ‘대형 오피스텔’보다 수요 기반이 넓음. 약 20억원 가격이 인근 33평 아파트 대비 얼마나 할인되는지가 승부처</span></div>
 <details><summary>출처 보기</summary><ul class="point">
 <li><a href="https://hillstate.co.kr/SALE/1050/14946/baseInfo/index">힐스테이트 송파더그리드 공식 홈페이지</a></li>
 <li><a href="https://www.fnnews.com/news/202609110501408804">송파 더그리드 분양가·상품 관련 기사</a></li>
