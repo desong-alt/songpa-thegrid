@@ -216,7 +216,7 @@ const focus6=document.getElementById('group6Focus');
 function applyGroup(g){
  buttons.forEach(b=>{const on=b.dataset.selectGroup===g;b.classList.toggle('active',on);b.setAttribute('aria-pressed',on?'true':'false');});
  document.querySelectorAll('[data-group]').forEach(el=>{el.classList.remove('group-selected','selected-row');if(el.dataset.group===g){if(el.classList.contains('row'))el.classList.add('selected-row');else el.classList.add('group-selected');}});
- const col=Number(g)-2;
+ const col=Number(g)-3;
  document.querySelectorAll('.group-table').forEach(table=>{
   table.querySelectorAll('.selected-col').forEach(c=>c.classList.remove('selected-col'));
   table.querySelectorAll('tr').forEach(tr=>{const cells=tr.children;if(cells[col])cells[col].classList.add('selected-col');});
