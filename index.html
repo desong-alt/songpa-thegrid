@@ -3,221 +3,189 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>송파 더 그리드 분석</title>
+<title>송파더그리드 5군 예비10번 대응 플랜</title>
 <style>
-:root{--bg:#f3f4f6;--card:#fff;--text:#111827;--muted:#6b7280;--line:#e5e7eb;--blue:#2563eb;--green:#047857;--amber:#b45309;--red:#b91c1c}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;line-height:1.55}
-main{max-width:720px;margin:auto;padding:10px 9px 28px}.hero{background:#111827;color:#fff;border-radius:18px;padding:20px 17px}.hero h1{font-size:25px;line-height:1.2;margin:0 0 8px}.hero p{font-size:13px;margin:0;color:#d1d5db}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.chip{font-size:11px;padding:5px 8px;border-radius:999px;background:#1f2937}
-.section{margin-top:9px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}h2{font-size:18px;margin:0 0 10px}h3{font-size:14px;margin:12px 0 6px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.card{border:1px solid var(--line);border-radius:13px;padding:11px;background:#fff;transition:.18s ease}.card h3{font-size:15px;margin:0 0 3px}.price{font-size:17px;font-weight:800;margin-bottom:6px}.small{font-size:12px;color:var(--muted);line-height:1.45}.badge{display:inline-block;font-size:11px;font-weight:700;border-radius:999px;padding:4px 7px;margin-top:7px}.good{background:#ecfdf5;color:var(--green)}.mid{background:#eff6ff;color:var(--blue)}.risk{background:#fff7ed;color:var(--amber)}
-.row{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px;transition:.18s ease}.row:last-child{border-bottom:0}.row b{font-size:13px}
-.tax{display:grid;grid-template-columns:1fr 1fr;gap:8px}.taxbox{border-radius:13px;padding:11px;background:#f9fafb;border:1px solid var(--line)}.taxbox .n{font-size:19px;font-weight:800}.taxbox .l{font-size:11px;color:var(--muted)}
-.explain{margin-top:9px;padding:11px 12px;border-radius:12px;background:#f8fafc;border:1px solid var(--line);font-size:12px;color:#374151}.explain b{color:#111827}.explain p{margin:5px 0}.warn{margin-top:8px;padding:10px 11px;border-radius:12px;background:#fff7ed;color:#7c2d12;font-size:12px}.danger{background:#fef2f2;color:#7f1d1d;border:1px solid #fecaca}.point{margin:0;padding-left:18px}.point li{font-size:12px;color:#4b5563;margin:5px 0}
-.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px}.tax-table{width:100%;min-width:590px;border-collapse:collapse;background:#fff;table-layout:fixed}.tax-table th,.tax-table td{padding:8px 6px;border-bottom:1px solid var(--line);font-size:11.5px;text-align:right;white-space:nowrap;transition:.18s ease}.tax-table th:first-child,.tax-table td:first-child{text-align:left;position:sticky;left:0;background:#fff;z-index:1;width:118px;min-width:118px;max-width:118px;white-space:normal;line-height:1.3}.tax-table th:not(:first-child),.tax-table td:not(:first-child){width:102px}.tax-table thead th{background:#f8fafc;font-weight:700;color:#374151}.tax-table thead th:first-child{background:#f8fafc}.tax-table tbody tr:last-child td{border-bottom:0}.tax-table .em{font-weight:800;color:#111827}.rate-table{min-width:430px;table-layout:auto}.rate-table td,.rate-table th{text-align:center}.rate-table td:first-child,.rate-table th:first-child{text-align:left;width:auto;min-width:64px;max-width:none;white-space:nowrap}
-.scroll-hint{font-size:10.5px;color:#9ca3af;text-align:right;margin:-3px 2px 6px}.caption{font-size:11px;color:var(--muted);margin:8px 1px 0;line-height:1.45}
-.scenario{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:8px 0}.scenario .box{border:1px solid var(--line);border-radius:11px;padding:9px;background:#f9fafb}.scenario .box b{font-size:12px}.scenario .box span{display:block;font-size:10.5px;color:var(--muted);line-height:1.4;margin-top:3px}
-.size-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.size-box{border:1px solid var(--line);border-radius:13px;padding:12px;background:#fff;transition:.18s ease}.size-box .k{font-size:11px;color:var(--muted)}.size-box .v{font-size:19px;font-weight:800;margin:2px 0}.size-box p{font-size:12px;color:#4b5563;margin:4px 0 0}.size-box strong{color:#111827}
-.common-info{margin-top:9px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px}.common-info h2{margin-bottom:8px}.common-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.common-box{border:1px solid #bfdbfe;background:#f8fbff;border-radius:12px;padding:10px}.common-box .k{font-size:10.5px;color:#1d4ed8;font-weight:700}.common-box .v{font-size:15px;font-weight:800;color:#1e3a8a;margin:2px 0}.common-box p{font-size:11px;color:#475569;margin:3px 0 0;line-height:1.45}.common-note{margin-top:8px;font-size:11px;color:#64748b;line-height:1.5}
-.selector{margin-top:9px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px}.selector-title{font-size:12px;color:var(--muted);margin-bottom:8px}.selector-buttons{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.group-btn{appearance:none;border:1px solid var(--line);background:#fff;color:#374151;border-radius:11px;min-height:44px;font-size:14px;font-weight:800;cursor:pointer}.group-btn.active{background:#2563eb;border-color:#2563eb;color:#fff}.group-btn:focus-visible{outline:3px solid #bfdbfe;outline-offset:2px}.selected-summary{margin-top:9px;padding:12px;border:1px solid #93c5fd;border-radius:13px;background:#eff6ff}.selected-summary .st{font-size:11px;color:#1d4ed8;font-weight:700}.selected-summary .sv{font-size:19px;font-weight:800;color:#1e3a8a;margin:2px 0}.selected-summary .sd{font-size:12px;color:#1e40af;line-height:1.5}
-.group-selected{background:#eff6ff!important;border-color:#93c5fd!important;box-shadow:inset 0 0 0 1px #bfdbfe}.group-selected h3,.group-selected .price,.group-selected .v{color:#1d4ed8}.selected-col{background:#eff6ff!important;color:#1d4ed8!important;font-weight:700!important}.tax-table thead .selected-col{background:#dbeafe!important}.selected-row{background:#eff6ff;border:1px solid #93c5fd!important;border-radius:10px;padding:10px 8px!important;margin:4px 0;color:#1e3a8a}.selected-row b{color:#1d4ed8}.focus-section{background:#eff6ff;border-color:#60a5fa;box-shadow:0 0 0 1px #bfdbfe}.focus-section h2{color:#1d4ed8}.focus-section .size-box{background:#f8fbff;border-color:#93c5fd}.focus-section .danger.warn,.focus-section .warn,.focus-section .explain{background:#dbeafe;border:1px solid #93c5fd;color:#1e3a8a}.focus-section .danger.warn b,.focus-section .warn b,.focus-section .explain b{color:#1e3a8a}
-.formula{margin-top:8px;padding:10px 11px;border-radius:12px;background:#f8fafc;border:1px solid #cbd5e1;font-size:12px;line-height:1.6;overflow-wrap:anywhere}.formula strong{color:#1d4ed8}.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:8px}.prob-box{border:1px solid #bfdbfe;background:#f8fbff;border-radius:12px;padding:10px;text-align:center}.prob-box .n{font-size:20px;font-weight:800;color:#1d4ed8}.prob-box .l{font-size:10.5px;color:#64748b;margin-top:2px}
-details{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}summary{cursor:pointer;font-size:13px;font-weight:700}a{color:var(--blue);text-decoration:none}footer{text-align:center;font-size:11px;color:#9ca3af;padding:16px 4px 0}
-@media(max-width:430px){main{padding:8px 8px 24px}.hero{padding:18px 15px}.hero h1{font-size:23px}.grid,.tax,.size-grid{grid-template-columns:1fr 1fr}.common-grid{grid-template-columns:1fr}.price{font-size:16px}.row{grid-template-columns:88px 1fr}.tax-table{min-width:550px}.tax-table th,.tax-table td{padding:7px 5px;font-size:11px}.tax-table th:first-child,.tax-table td:first-child{width:104px;min-width:104px;max-width:104px}.tax-table th:not(:first-child),.tax-table td:not(:first-child){width:96px}.rate-table{min-width:410px}.rate-table td:first-child,.rate-table th:first-child{width:auto;min-width:58px;max-width:none}.scenario{grid-template-columns:1fr}.size-box .v{font-size:17px}.selector-buttons{gap:5px}.group-btn{font-size:13px}.prob-grid{grid-template-columns:1fr 1fr 1fr}.prob-box{padding:8px 4px}.prob-box .n{font-size:17px}}
+:root{--bg:#f3f6fb;--card:#fff;--text:#111827;--muted:#64748b;--line:#dbe3ef;--blue:#2563eb;--blue2:#eff6ff;--navy:#0f172a;--green:#047857;--greenbg:#ecfdf5;--amber:#b45309;--amberbg:#fff7ed;--red:#b91c1c;--redbg:#fef2f2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;line-height:1.55}main{max-width:780px;margin:auto;padding:10px 9px 34px}
+.hero{background:linear-gradient(145deg,#0f172a,#1e3a8a);color:#fff;border-radius:20px;padding:21px 17px}.hero h1{margin:0;font-size:25px;line-height:1.25}.hero p{margin:7px 0 0;color:#cbd5e1;font-size:13px}.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.14);padding:5px 8px;border-radius:999px;font-size:11px}
+.section{margin-top:9px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px}h2{font-size:18px;margin:0 0 10px}h3{font-size:14px;margin:14px 0 7px}.small{font-size:11px;color:var(--muted)}.lead{font-size:13px;color:#334155;margin:0 0 9px}.blue{background:var(--blue2);border-color:#93c5fd}.notice{padding:11px 12px;border-radius:12px;background:#eff6ff;border:1px solid #bfdbfe;font-size:12px;color:#1e3a8a;margin:8px 0}.warn{padding:11px 12px;border-radius:12px;background:var(--amberbg);border:1px solid #fed7aa;font-size:12px;color:#7c2d12;margin:8px 0}.danger{padding:11px 12px;border-radius:12px;background:var(--redbg);border:1px solid #fecaca;font-size:12px;color:#7f1d1d;margin:8px 0}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.kpi{border:1px solid var(--line);border-radius:13px;padding:10px;background:#f8fafc}.kpi .k{font-size:10.5px;color:var(--muted)}.kpi .v{font-size:18px;font-weight:800;margin-top:2px}.kpi .s{font-size:10.5px;color:#64748b;margin-top:2px}.kpi.bluebox{background:#eff6ff;border-color:#93c5fd}.kpi.bluebox .v{color:#1d4ed8}
+.steps{display:grid;gap:7px}.step{display:grid;grid-template-columns:54px 1fr;gap:9px;padding:10px;border:1px solid var(--line);border-radius:12px}.step .num{font-size:12px;font-weight:800;color:#1d4ed8}.step b{font-size:13px}.step p{font-size:11.5px;color:#475569;margin:2px 0 0}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px}.tbl{width:100%;border-collapse:collapse;background:#fff;min-width:690px}.tbl th,.tbl td{padding:8px 7px;border-bottom:1px solid var(--line);font-size:11.5px;text-align:right;white-space:nowrap}.tbl th{background:#f8fafc;color:#475569}.tbl th:first-child,.tbl td:first-child{text-align:left;position:sticky;left:0;background:#fff;z-index:2}.tbl thead th:first-child{background:#f8fafc}.tbl tr:last-child td{border-bottom:0}.go{color:var(--green);font-weight:800}.hold{color:var(--amber);font-weight:800}.stop{color:var(--red);font-weight:800}.scroll{font-size:10.5px;color:#94a3b8;text-align:right;margin:-3px 1px 6px}
+.calc{background:#0f172a;color:#fff;border-radius:15px;padding:13px}.calc h3{margin:0 0 10px;color:#fff}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.field label{display:block;font-size:10.5px;color:#cbd5e1;margin-bottom:4px}.field input,.field select{width:100%;border:1px solid #475569;background:#111827;color:#fff;border-radius:9px;padding:9px;font-size:13px}.outgrid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}.out{background:#1e293b;border:1px solid #334155;border-radius:10px;padding:9px}.out .k{font-size:10px;color:#94a3b8}.out .v{font-size:16px;font-weight:800;margin-top:2px}.out.full{grid-column:1/-1}.status{margin-top:9px;padding:11px;border-radius:11px;font-size:13px;font-weight:800}.status.go{background:#064e3b;color:#d1fae5}.status.hold{background:#78350f;color:#ffedd5}.status.stop{background:#7f1d1d;color:#fee2e2}
+.timeline{display:grid;gap:7px}.time{display:grid;grid-template-columns:98px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}.time:last-child{border-bottom:0}.time .d{font-size:11px;font-weight:800;color:#1d4ed8}.time .t{font-size:12px}.time .t b{display:block;font-size:13px;color:#111827}
+.preset{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}.preset button{border:1px solid #93c5fd;background:#eff6ff;color:#1d4ed8;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:700;cursor:pointer}.source a{color:#2563eb;text-decoration:none}.source li{font-size:11px;color:#475569;margin:5px 0}.foot{font-size:10.5px;color:#94a3b8;text-align:center;padding:15px 4px 0}
+@media(max-width:480px){main{padding:8px 8px 24px}.hero h1{font-size:22px}.kpis{grid-template-columns:1fr 1fr}.kpi:last-child{grid-column:1/-1}.formgrid{grid-template-columns:1fr}.outgrid{grid-template-columns:1fr 1fr}.time{grid-template-columns:82px 1fr}.tbl{min-width:650px}}
 </style>
 </head>
 <body><main>
 <section class="hero">
-<h1>송파 더 그리드<br>분양·세금·환금성 분석</h1>
-<p>4~7군 가격, 공급호수, 취득세·보유세와 4~6군 중심의 비교 분석</p>
-<div class="chips"><span class="chip">총 1,393실</span><span class="chip">5군 서울우선 최종당첨≈29.0%</span><span class="chip">2명 중 1명 이상≈49.6%</span></div>
+<h1>송파더그리드 5군<br>예비 10번 대응 플랜</h1>
+<p>9/20 예비계약 준비 → 배정호실 판단 → 2031년까지 자금 → 중푸 전세·대치동 전세 이동까지 한 페이지로 정리</p>
+<div class="chips"><span class="chip">5군 167실</span><span class="chip">예비 10번</span><span class="chip">82~96B㎡</span><span class="chip">계약금 10%</span><span class="chip">중도금 50% 이자후불</span></div>
 </section>
 
-<section class="common-info">
-<h2>더 그리드 공통 청약정보</h2>
-<div class="common-grid">
-<div class="common-box"><div class="k">청약통장</div><div class="v">필요 없음 · 통장 유지</div><p>청약통장을 사용하는 청약이 아니므로 당첨돼도 기존 통장의 가입기간·납입 이력은 그대로 유지됩니다.</p></div>
-<div class="common-box"><div class="k">당첨 이후</div><div class="v">재당첨 제한 없음</div><p>현행 모집 기준상 당첨자를 추첨으로 선정하며 재당첨 제한이 적용되지 않습니다.</p></div>
-<div class="common-box"><div class="k">향후 아파트 청약</div><div class="v">현행 무주택 자격 유지</div><p>오피스텔 보유는 아파트 청약의 주택 보유 판단과 별개로 취급되는 현행 기준입니다.</p></div>
+<section class="section blue">
+<h2>현재 상태</h2>
+<div class="kpis">
+<div class="kpi bluebox"><div class="k">예비 순번</div><div class="v">10번</div><div class="s">5군 167실 기준</div></div>
+<div class="kpi"><div class="k">10번 도달 조건</div><div class="v">10실 이상</div><div class="s">정당계약 포기·부적격 등 발생 시</div></div>
+<div class="kpi"><div class="k">공급 대비</div><div class="v">약 6.0%</div><div class="s">10 ÷ 167</div></div>
 </div>
-<div class="common-note"><b>주의:</b> 청약에서의 무주택 판단과 세법상 주택 수는 다른 기준입니다. 실제 주거용으로 사용하는 오피스텔은 재산세·종부세 등에서는 주택으로 판단될 수 있으며, 2031년 입주 시점의 청약·세법은 다시 확인해야 합니다.</div>
+<div class="notice"><b>핵심:</b> 예비 10번은 별도의 청약을 다시 넣는 상태가 아닙니다. 정당계약 종료 후 남는 호실이 예비순번까지 내려오면 사업주체 안내에 따라 계약 절차로 들어갑니다.</div>
 </section>
 
-<section class="selector" aria-label="관심 군 선택">
-<div class="selector-title">관심 군을 선택하면 아래 카드와 군별 표에서 해당 군이 강조됩니다.</div>
-<div class="selector-buttons" role="group" aria-label="군 선택">
-<button type="button" class="group-btn" data-select-group="4">4군</button>
-<button type="button" class="group-btn active" data-select-group="5" aria-pressed="true">5군</button>
-<button type="button" class="group-btn" data-select-group="6">6군</button>
-<button type="button" class="group-btn" data-select-group="7">7군</button>
+<section class="section" id="contract">
+<h2>1. 예비당첨자 계약 안내 · 9/20 기준</h2>
+<div class="warn"><b>9/20은 사업설명회 사전 안내 자료에서 제시된 예비당첨자 계약 예상일입니다.</b> 공식 모집공고에 확정된 계약기간은 9/18~19 정당계약까지입니다. 따라서 9/20의 집결시간·잔여호실 배정 방식·준비서류는 반드시 문자/전화로 최종 확인해야 합니다. 분양문의 02-6203-3650.</div>
+<div class="steps">
+<div class="step"><div class="num">STEP 1</div><div><b>9/18~19 정당계약 종료 대기</b><p>정당당첨자의 미계약·부적격 등으로 5군 잔여호실이 발생해야 예비순번이 진행됩니다.</p></div></div>
+<div class="step"><div class="num">STEP 2</div><div><b>사업주체 문자·전화 확인</b><p>예비 10번 본인에게 집결시간과 계약방법이 통보되는지 확인합니다. 연락이 없으면 9/19 종료 후 직접 문의하는 것이 안전합니다.</p></div></div>
+<div class="step"><div class="num">STEP 3</div><div><b>9/20 현장 방문</b><p>사전 안내상 예비당첨자 순번 계약 예정. 정당계약 공고상 계약 장소는 서울 강남구 자곡로 218 견본주택입니다. 9/20 장소는 최종 안내를 우선합니다.</p></div></div>
+<div class="step"><div class="num">STEP 4</div><div><b>남은 타입·동·호실·정확한 분양가 확인</b><p>예비계약에서 선택권이 있는지, 순번별 배정인지, 별도 추첨인지가 가장 중요합니다. 공개 자료만으로 9/20의 세부 배정방식은 확정하기 어렵습니다.</p></div></div>
+<div class="step"><div class="num">STEP 5</div><div><b>계약한다면 당일 1,000만원</b><p>계약금 총액은 공급금액의 10%. 1차 1,000만원 납부 후 나머지 계약금은 계약일로부터 30일 이내 완납합니다. 청약신청금 300만원은 계약금으로 전환되지 않습니다.</p></div></div>
 </div>
-<div class="selected-summary" id="selectedSummary" aria-live="polite">
-<div class="st">현재 선택 · 5군</div><div class="sv">13.3~16.6억 · 총 167실</div><div class="sd">오피스텔 82~96㎡ · 서울 거주자 우선 33실 · 일반 134실. 9/14 최종 접수현황 기준 서울 우선 신청자의 최종 당첨확률은 약 29.0%로 계산됩니다.</div>
+<h3>미리 준비할 것</h3>
+<div class="notice">신분증 · 주민등록등본 · 인감증명서 또는 본인서명사실확인서 · 인감도장(인감증명서 사용 시) · 계약금 이체수단/이체한도 · 계약금 납부증빙 · 수입인지 관련 준비를 해두는 편이 좋습니다. <b>최종 서류 목록은 예비당첨자 문자와 분양사무실 안내가 우선</b>입니다.</div>
+</section>
+
+<section class="section" id="unit">
+<h2>2. 5군 배정호실: 진행 vs 포기 기준</h2>
+<p class="lead">아래 기준은 <b>동·향·층을 아직 모르는 상태에서 가격과 전용면적만으로 거르는 1차 필터</b>입니다. 기준은 전용평당가 ≤5,430만원은 ‘진행’, 5,430~5,666만원은 ‘조건부’, 5,666만원 초과는 ‘포기 검토’로 통일했습니다.</p>
+<div class="scroll">← 좌우로 밀어 전체 표 보기 →</div>
+<div class="table-wrap"><table class="tbl"><thead><tr><th>타입</th><th>공급</th><th>분양가 범위</th><th>진행</th><th>조건부</th><th>포기 검토</th></tr></thead><tbody>
+<tr><td><b>82</b></td><td>13실</td><td>13.33~14.51억</td><td class="go">≤13.62억</td><td class="hold">13.62~14.22억</td><td class="stop">&gt;14.22억</td></tr>
+<tr><td><b>84</b></td><td>55실</td><td>13.35~15.02억</td><td class="go">≤13.95억</td><td class="hold">13.95~14.56억</td><td class="stop">&gt;14.56억</td></tr>
+<tr><td><b>88</b></td><td>12실</td><td>14.25~15.52억</td><td class="go">≤14.57억</td><td class="hold">14.57~15.20억</td><td class="stop">&gt;15.20억</td></tr>
+<tr><td><b>89</b></td><td>12실</td><td>14.11~15.40억</td><td class="go">≤14.76억</td><td class="hold">14.76~15.40억</td><td>가격만 보면 없음</td></tr>
+<tr><td><b>91</b></td><td>12실</td><td>14.67~15.98억</td><td class="go">≤15.00억</td><td class="hold">15.00~15.65억</td><td class="stop">&gt;15.65억</td></tr>
+<tr><td><b>95</b></td><td>14실</td><td>15.08~16.62억</td><td class="go">≤15.76억</td><td class="hold">15.76~16.45억</td><td class="stop">&gt;16.45억</td></tr>
+<tr><td><b>96A</b></td><td>25실</td><td>14.63~16.01억</td><td class="go">≤15.84억</td><td class="hold">15.84~16.01억</td><td>가격만 보면 없음</td></tr>
+<tr><td><b>96B</b></td><td>24실</td><td>15.02~16.57억</td><td class="go">≤15.88억</td><td class="hold">15.88~16.57억</td><td>가격만 보면 없음</td></tr>
+</tbody></table></div>
+<div class="notice"><b>읽는 법:</b> 96A·96B는 절대가격은 높지만 면적 대비 가격이 상대적으로 낮아 가격필터에서는 유리합니다. 반대로 82·84의 고가 호실은 더 큰 타입의 저가 호실과 가격이 겹칩니다. 다만 실제 계약에서는 <b>저층·조망가림·소음·향·엘리베이터/기계실 인접</b>을 확인해 ‘조건부’를 한 단계 낮춰 판단할 수 있습니다.</div>
+<div class="calc">
+<h3>배정호실 즉석 판정</h3>
+<div class="formgrid"><div class="field"><label>배정 타입</label><select id="typeSel"><option>82</option><option selected>84</option><option>88</option><option>89</option><option>91</option><option>95</option><option>96A</option><option>96B</option></select></div><div class="field"><label>배정 분양가 (억원)</label><input id="unitPrice" type="number" step="0.01" value="14.50"></div></div>
+<div id="unitStatus" class="status hold">계산 중</div>
+<div class="outgrid"><div class="out"><div class="k">전용평당가</div><div class="v" id="perPyeong">-</div></div><div class="out"><div class="k">타입 공식 범위</div><div class="v" id="typeRange">-</div></div></div>
 </div>
+</section>
+
+<section class="section" id="money">
+<h2>3. 시계열별 필요 비용</h2>
+<p class="lead">5군은 계약금 10% → 중도금 50% → 잔금 40% 구조입니다. 중도금은 10%씩 5회이고 5군은 <b>이자후불제</b>입니다.</p>
+<div class="timeline">
+<div class="time"><div class="d">계약일</div><div class="t"><b>1차 계약금 1,000만원</b>예비계약 성립 시 즉시</div></div>
+<div class="time"><div class="d">D+30일</div><div class="t"><b>계약금 10% 완납</b>분양가×10% − 1,000만원</div></div>
+<div class="time"><div class="d">2027.10.29</div><div class="t"><b>중도금 1차 10%</b>대출 알선 예정</div></div>
+<div class="time"><div class="d">2028.10.31</div><div class="t"><b>중도금 2차 10%</b></div></div>
+<div class="time"><div class="d">2029.10.31</div><div class="t"><b>중도금 3차 10%</b></div></div>
+<div class="time"><div class="d">2030.03.29</div><div class="t"><b>중도금 4차 10%</b></div></div>
+<div class="time"><div class="d">2030.09.30</div><div class="t"><b>중도금 5차 10%</b></div></div>
+<div class="time"><div class="d">2031.01 예정</div><div class="t"><b>잔금 40% + 후불이자 + 취득세</b>중도금 대출은 상환 또는 담보대출 전환 필요</div></div>
+</div>
+<div class="calc" style="margin-top:10px">
+<h3>5군 자금 계산기</h3>
+<div class="formgrid">
+<div class="field"><label>분양가 (억원)</label><input id="salePrice" type="number" step="0.01" value="15.00"></div>
+<div class="field"><label>중도금 예상금리 (%)</label><input id="rate" type="number" step="0.1" value="4.5"></div>
+<div class="field"><label>취득세 예산율 (%)</label><input id="acqRate" type="number" step="0.1" value="4.6"></div>
+<div class="field"><label>입주 계산일</label><input id="occDate" type="date" value="2031-01-31"></div>
+</div>
+<div class="outgrid">
+<div class="out"><div class="k">계약금 총 10%</div><div class="v" id="depositTotal">-</div></div>
+<div class="out"><div class="k">30일 내 추가 계약금</div><div class="v" id="deposit2">-</div></div>
+<div class="out"><div class="k">중도금 대출 50%</div><div class="v" id="midLoan">-</div></div>
+<div class="out"><div class="k">후불이자 추정</div><div class="v" id="interest">-</div></div>
+<div class="out"><div class="k">잔금 40%</div><div class="v" id="balance">-</div></div>
+<div class="out"><div class="k">취득세 예산</div><div class="v" id="acqTax">-</div></div>
+<div class="out full"><div class="k">중도금 50%를 입주 후 대출로 유지/전환 가능하다고 가정한 총 자기자금</div><div class="v" id="equityNeed">-</div></div>
+<div class="out full"><div class="k">입주 때 중도금 50%를 전액 상환해야 하는 경우 총 필요자금</div><div class="v" id="allCash">-</div></div>
+</div>
+<div class="small" style="color:#94a3b8;margin-top:8px">후불이자는 각 10% 중도금 실행일부터 입력한 입주일까지 단리로 계산합니다. 취득세 4.6%는 보수적 예산치이며 실제 과표에서 건물분 VAT 처리, 옵션, 2031년 세법에 따라 달라질 수 있습니다.</div>
+</div>
+<div class="notice"><b>5군 전체 범위 참고:</b> 분양가 13.3265~16.6174억원, 금리 4.5%·입주 2031-01-31·취득세 4.6% 가정 시 중도금 대출을 유지/전환할 수 있을 때 계약~입주 총 자기자금은 대략 <b>7.75~9.67억원</b>입니다. 옵션·등기/법무비·중개비는 제외합니다.</div>
+</section>
+
+<section class="section" id="scenario">
+<h2>4. 당첨 후 시나리오: 중푸 전세 → 대치동 전세</h2>
+<p class="lead">현재 보유한 중푸 전용 102.05㎡의 확인 가능한 최근 동일면적 전세는 약 9.5~9.6억원 수준입니다. 아래 계산기는 <b>9.6억원을 기본값</b>으로 두고, 실제 받을 전세금과 대치동 목표 전세금을 직접 바꿀 수 있게 했습니다.</p>
+<div class="table-wrap"><table class="tbl"><thead><tr><th>대치동 참고군</th><th>전용면적</th><th>최근 전세 참고</th><th>중푸 9.6억 대비 보증금 차이</th></tr></thead><tbody>
+<tr><td><b>은마</b></td><td>84㎡급</td><td>약 6.0~9.1억</td><td>대체로 여유</td></tr>
+<tr><td><b>대치우성</b></td><td>84.69㎡</td><td>약 7.0~8.3억</td><td>약 -2.6~-1.3억</td></tr>
+<tr><td><b>한보미도 1·2</b></td><td>84㎡급</td><td>약 9.0~10.7억</td><td>약 -0.6~+1.1억</td></tr>
+<tr><td><b>대치아이파크</b></td><td>84㎡급</td><td>약 13.9~17.9억</td><td>약 +4.3~8.3억</td></tr>
+<tr><td><b>래미안대치팰리스</b></td><td>84㎡급</td><td>최근 약 17~20.3억 중심*</td><td>약 +7.4~10.7억</td></tr>
+</tbody></table></div>
+<div class="small" style="margin-top:6px">* 갱신계약·특수계약이 섞여 있어 개별 계약조건 확인 필요. 대치동은 같은 전용면적이라도 단지 연식·학교 접근성·동/층·수리상태에 따라 편차가 큽니다.</div>
+<div class="calc" style="margin-top:10px">
+<h3>중푸→대치 전세 이동 현금 계산기</h3>
+<div class="formgrid">
+<div class="field"><label>중푸에서 받을 전세금 (억원)</label><input id="wiryeJeonse" type="number" step="0.1" value="9.6"></div>
+<div class="field"><label>대치동 목표 전세금 (억원)</label><input id="daechiJeonse" type="number" step="0.1" value="10.0"></div>
+<div class="field"><label>중푸 전세금으로 상환할 기존대출 (억원)</label><input id="mortgagePay" type="number" step="0.1" value="0"></div>
+<div class="field"><label>이사·수리·보관 등 예비비 (억원)</label><input id="moveCost" type="number" step="0.01" value="0.05"></div>
+</div>
+<div class="preset"><button data-jeonse="8.0">은마/우성급 8억</button><button data-jeonse="10.0">미도급 10억</button><button data-jeonse="16.0">아이파크급 16억</button><button data-jeonse="20.0">래대팰급 20억</button></div>
+<div class="outgrid">
+<div class="out"><div class="k">중푸 임대 중개보수 상한</div><div class="v" id="brokerOut">-</div></div>
+<div class="out"><div class="k">대치 전세 중개보수 상한</div><div class="v" id="brokerIn">-</div></div>
+<div class="out full"><div class="k">전세 이동에 추가로 필요한 순현금</div><div class="v" id="moveGap">-</div></div>
+<div class="out full"><div class="k">5군 계약금 10%까지 동시에 마련한다면 (현재 분양가 계산기 연동)</div><div class="v" id="movePlusContract">-</div></div>
+</div>
+<div class="small" style="color:#94a3b8;margin-top:8px">서울 주택 임대차 중개보수 상한요율: 6~12억 0.4%, 12~15억 0.5%, 15억 이상 0.6%. 실제 보수는 상한 이내 협의이며 VAT는 별도일 수 있습니다.</div>
+</div>
+<div class="notice"><b>현금흐름 포인트:</b> 대치동 이사를 2026년 계약 직후 진행한다면 ‘대치 전세 보증금 차액’과 ‘5군 계약금 10%’가 같은 시기에 겹칩니다. 따라서 대치 이동 여부는 2031년 잔금보다 <b>2026년 10월 전후 단기 유동성</b>을 먼저 확인해야 합니다.</div>
 </section>
 
 <section class="section">
-<h2>4~7군 한눈에 보기</h2>
-<div class="grid" id="overviewGrid">
-<div class="card" data-group="4"><h3>4군</h3><div class="price">11.9~13.6억</div><div class="small">오피스텔 75~79㎡<br><b>총 53실</b> · 서울 우선 10실 / 일반 43실</div><span class="badge good">53실</span></div>
-<div class="card group-selected" data-group="5"><h3>5군</h3><div class="price">13.3~16.6억</div><div class="small">오피스텔 82~96㎡<br><b>총 167실</b> · 서울 우선 33실 / 일반 134실</div><span class="badge good">167실</span></div>
-<div class="card" data-group="6"><h3>6군</h3><div class="price">15.0~19.1억</div><div class="small">오피스텔 98~106㎡<br><b>총 280실</b> · 서울 우선 56실 / 일반 224실</div><span class="badge mid">280실</span></div>
-<div class="card" data-group="7"><h3>7군</h3><div class="price">17.5~21.6억</div><div class="small">오피스텔 108~119㎡<br><b>총 152실</b> · 서울 우선 30실 / 일반 122실</div><span class="badge mid">152실</span></div>
+<h2>당첨 연락이 오면 10분 체크리스트</h2>
+<div class="steps">
+<div class="step"><div class="num">1분</div><div><b>타입·동·호·층·향·분양가 기록</b><p>전화상 안내라면 문자나 현장표로 다시 확인.</p></div></div>
+<div class="step"><div class="num">3분</div><div><b>위 ‘즉석 판정’에 타입·가격 입력</b><p>진행/조건부/포기검토 1차 필터 확인.</p></div></div>
+<div class="step"><div class="num">5분</div><div><b>동·향·저층/막힘 여부 확인</b><p>조건부 가격이면 물리적 조건이 좋을 때만 상향.</p></div></div>
+<div class="step"><div class="num">7분</div><div><b>자금 계산기에 정확한 가격 입력</b><p>D+30 계약금과 2031 입주자금 두 숫자를 확인.</p></div></div>
+<div class="step"><div class="num">10분</div><div><b>계약 여부 결정</b><p>계약하면 당일 1,000만원. 계약금 잔액은 30일 내 준비.</p></div></div>
 </div>
-<p class="caption">※ 공급호수: 모집공고 기준. 서울 거주자 우선분양과 일반분양을 합한 총 공급.</p>
 </section>
 
-<section class="section focus-section" id="competitionFocus">
-<h2>9/14 최종 경쟁률 · 5군 당첨확률 계산</h2>
-<div class="scroll-hint">← 좌우로 밀어 군별 비교 →</div>
-<div class="table-wrap"><table class="tax-table rate-table"><thead><tr><th>군</th><th>공급</th><th>서울우선 접수</th><th>우선 경쟁률</th><th>기타 접수</th><th>일반 경쟁률</th></tr></thead><tbody>
-<tr><td>4군</td><td>53</td><td>355</td><td>35.50:1</td><td>263</td><td>14.14:1</td></tr>
-<tr class="selected-row"><td><b>5군</b></td><td><b>167</b></td><td><b>349</b></td><td><b>10.58:1</b></td><td><b>305</b></td><td><b>4.63:1</b></td></tr>
-<tr><td>6군</td><td>280</td><td>141</td><td>2.52:1</td><td>125</td><td>△14</td></tr>
-<tr><td>7군</td><td>152</td><td>100</td><td>3.33:1</td><td>93</td><td>1.34:1</td></tr>
-</tbody></table></div>
-<p class="caption">※ 사용자가 확인한 청약홈 최종 접수현황 화면 기준. △14는 일반공급 단계에서 14실 미달을 의미합니다.</p>
-
-<h3>왜 5군 ‘4.63:1’은 305 ÷ 134가 아닌가</h3>
-<div class="formula">
-5군 총 167실 = <strong>서울 우선 33실 + 일반 134실</strong><br>
-서울 우선: 349명 ÷ 33실 = <strong>10.58 : 1</strong><br>
-우선에서 탈락하는 인원: 349 − 33 = <strong>316명</strong><br>
-일반추첨 참여인원: 우선탈락 316 + 기타 305 = <strong>621명</strong><br>
-일반 경쟁률: 621 ÷ 134 = <strong>4.63 : 1</strong>
-</div>
-
-<h3>서울 거주자 우선 신청자 1명의 최종 당첨확률</h3>
-<div class="formula">
-1차 우선 당첨확률 = 33 ÷ 349 = <strong>9.46%</strong><br>
-1차 탈락 후 2차 일반 당첨확률 = (316 ÷ 349) × (134 ÷ 621)<br>
-최종 = 33/349 + (316/349 × 134/621) = <strong>28.99% ≈ 29.0%</strong>
-</div>
-<div class="tax" style="margin-top:8px"><div class="taxbox"><div class="l">서울 우선 신청자 1명</div><div class="n">약 29.0%</div><div class="small">우선 + 일반 재추첨 기회 포함</div></div><div class="taxbox"><div class="l">기타 신청자</div><div class="n">약 21.6%</div><div class="small">134 ÷ 621</div></div></div>
-
-<h3>두 분이 각각 5군에 신청한 경우</h3>
-<div class="formula">
-단순히 29% + 29% = 58%로 더하지 않습니다. 두 분 모두 탈락하는 확률을 먼저 계산합니다.<br><br>
-둘 다 우선에서 탈락 = (316/349) × (315/348)<br>
-그 두 명이 일반에서도 모두 탈락 = (487/621) × (486/620)<br>
-따라서 둘 다 최종 탈락 = 위 네 항의 곱 = <strong>50.38%</strong><br>
-최소 1명 당첨 = 1 − 50.38% = <strong>49.62%</strong>
-</div>
-<div class="prob-grid">
-<div class="prob-box"><div class="n">49.62%</div><div class="l">1명 이상 당첨</div></div>
-<div class="prob-box"><div class="n">41.25%</div><div class="l">정확히 1명 당첨</div></div>
-<div class="prob-box"><div class="n">8.37%</div><div class="l">두 명 모두 당첨</div></div>
-</div>
-<p class="caption">※ 두 신청자 모두 서울 거주자 우선 대상이고 각각 유효하게 접수되었으며, 공개된 공급·접수 인원을 기준으로 무작위 추첨을 계산한 값입니다. 결격·취소·예비당첨 등은 반영하지 않았습니다.</p>
+<section class="section source">
+<h2>기준 자료</h2>
+<ul>
+<li><a href="https://songpathegrid.com/">공식 프로젝트 홈페이지</a> · 총 1,393실, 사업개요</li>
+<li><a href="https://www.hillstate.co.kr/main/index">현대 힐스테이트 공식</a> · 분양문의 02-6203-3650</li>
+<li><a href="https://partnexa.com/local/applyhome-pblanc-view.asp?HOUSE_MANAGE_NO=2026950080&PBLANC_NO=2026950080&PblancNo=5164">모집공고 데이터</a> · 당첨 9/17, 정당계약 9/18~19</li>
+<li><a href="https://kkid-monj-travel.tistory.com/308">모집공고 요약</a> · 5군 타입별 공급·분양가·중도금 일정·이자후불 조건</li>
+<li><a href="https://propertyshop.co.kr/hillstate-songpa-thegrid/">사전 사업설명회 일정</a> · 9/20 예비당첨자 계약 예상 일정</li>
+<li><a href="https://aptsite.kr/apartment/36729">위례중앙푸르지오1단지 전월세 실거래</a> · 102.05㎡ 최근 전세 참고</li>
+<li><a href="https://aptndm.com/apt_rent/aptlist_dong?dong=%EB%8C%80%EC%B9%98%EB%8F%99&region_code=11680">대치동 전월세 실거래</a> · 대치우성·미도·아이파크 등</li>
+<li><a href="https://www.easylaw.go.kr/CSP/CnpClsMainBtr.laf?ccfNo=2&cciNo=2&cnpClsNo=2&csmSeq=649&menuType=cnpcls&popMenu=ov">찾기쉬운 생활법령</a> · 서울 주택 임대차 중개보수 상한요율</li>
+</ul>
+<div class="small">2026-09-17 기준. 예비당첨자 9/20 세부 절차, 중도금 대출기관·금리, 2031년 취득세·대출규제는 향후 변경될 수 있으므로 실제 계약 시 최신 안내를 우선합니다.</div>
 </section>
-
-<section class="section" id="group4Focus">
-<h2>4군 집중 분석</h2>
-<div class="size-grid">
-<div class="size-box"><div class="k">분양가 범위</div><div class="v">11.89~13.59억</div><p>분양가 중간값 약 <strong>12.74억원</strong></p></div>
-<div class="size-box"><div class="k">공급</div><div class="v">53실</div><p>서울 우선 10실 · 일반 43실</p></div>
-</div>
-<ul class="point"><li><b>면적:</b> 오피스텔 75~79㎡.</li><li><b>취득세 추정:</b> 약 0.55~0.62억원.</li><li><b>합산 보유세 추정:</b> 현재 세법·과세가액 가정에서 약 668~750만원/년.</li><li><b>기준 시나리오:</b> 2036년 예상가 16.64억원, 비용 차감 순차익 +2.64억원으로 계산.</li></ul>
-</section>
-
-<section class="section focus-section" id="group5Focus">
-<h2>5군 집중 분석</h2>
-<div class="size-grid">
-<div class="size-box"><div class="k">분양가 범위</div><div class="v">13.33~16.62억</div><p>분양가 중간값 약 <strong>14.97억원</strong></p></div>
-<div class="size-box"><div class="k">공급</div><div class="v">167실</div><p>서울 우선 33실 · 일반 134실</p></div>
-</div>
-<ul class="point"><li><b>면적:</b> 오피스텔 82~96㎡.</li><li><b>평면 비교 기준:</b> 84㎡ 타입은 아파트 전용 59㎡급과 비교하고, 95~96㎡는 59㎡와 74㎡ 사이 체급으로 봅니다.</li><li><b>최종 접수:</b> 서울 우선 349건, 기타 305건. 표시 경쟁률 10.58:1 / 4.63:1.</li><li><b>서울 우선 신청자 최종 당첨확률:</b> 약 28.99%.</li><li><b>기준 시나리오:</b> 2036년 예상가 19.56억원, 비용 차감 순차익 +3.09억원으로 계산.</li></ul>
-</section>
-
-<section class="section" id="group6Focus">
-<h2>6군 집중 분석: 무작위 배정 구조</h2>
-<div class="danger warn"><b>청약은 세부 타입을 선택하는 방식이 아니라 ‘6군’으로 신청합니다. 당첨되면 6군 안의 타입·동·호실이 전산프로그램으로 무작위 결정됩니다.</b></div>
-<div class="size-grid"><div class="size-box"><div class="k">6군 공급</div><div class="v">280실 · 16개 타입</div><p>서울 우선 56실 · 일반 224실</p></div><div class="size-box"><div class="k">면적 범위</div><div class="v">98~106㎡</div><p>평면 비교 기준으로 아파트 전용 74㎡급 중심</p></div></div>
-<ul class="point"><li><b>최종 접수:</b> 서울 우선 141건, 기타 125건.</li><li><b>표시 결과:</b> 서울 우선 2.52:1, 일반 단계 14실 미달.</li><li><b>100% 추첨제:</b> 세부 타입 선호도나 가점으로 호실을 선택하는 구조가 아닙니다.</li><li><b>분양가 범위:</b> 약 14.99~19.06억원.</li></ul>
-<h3>무작위 배정 리스크 참고치</h3>
-<div class="table-wrap"><table class="tax-table rate-table"><thead><tr><th>타입 중간가격 기준</th><th>공급호실</th><th>6군 내 비중</th></tr></thead><tbody><tr><td>16.5억 이하</td><td>122실</td><td class="em">43.6%</td></tr><tr><td>16.5~17.5억</td><td>118실</td><td class="em">42.1%</td></tr><tr><td>17.5억 초과</td><td>40실</td><td class="em">14.3%</td></tr></tbody></table></div>
-<p class="caption">※ 각 타입의 공급호실 수와 타입별 최저·최고 분양가의 중간값으로 나눈 참고치입니다. 실제 당첨가격은 같은 타입 안에서도 동·층·호에 따라 달라집니다. 타입 공급수 가중 중간값은 약 16.74억원입니다.</p>
-</section>
-
-<section class="section">
-<h2>위례중푸 + 더 그리드 합산 세금</h2>
-<div class="scroll-hint">← 좌우로 밀어 군별 비교 →</div>
-<div class="table-wrap"><table class="tax-table group-table"><thead><tr><th>구분</th><th>4군</th><th class="selected-col">5군</th><th>6군</th><th>7군</th></tr></thead><tbody>
-<tr><td>총 공급호수</td><td class="em">53실</td><td class="em selected-col">167실</td><td class="em">280실</td><td class="em">152실</td></tr>
-<tr><td>분양가 중간값</td><td class="em">12.74억</td><td class="em selected-col">14.97억</td><td class="em">17.02억</td><td class="em">19.51억</td></tr>
-<tr><td>취득세 등 약 4.6%</td><td>5,860만</td><td class="selected-col">6,890만</td><td>7,830만</td><td>8,980만</td></tr>
-<tr><td>공동명의 1인당 취득세</td><td>2,930만</td><td class="selected-col">3,445만</td><td>3,915만</td><td>4,490만</td></tr>
-<tr><td>위례중푸 보유세 예상</td><td>384만/년</td><td class="selected-col">384만/년</td><td>384만/년</td><td>384만/년</td></tr>
-<tr><td>더 그리드 재산세 등</td><td>256만</td><td class="selected-col">314만</td><td>368만</td><td>433만</td></tr>
-<tr><td>종부세 + 농특세</td><td>68만</td><td class="selected-col">117만</td><td>159만</td><td>211만</td></tr>
-<tr><td class="em">두 부동산 합산 보유세</td><td class="em">709만/년</td><td class="em selected-col">816만/년</td><td class="em">911만/년</td><td class="em">1,028만/년</td></tr>
-<tr><td>현재 약 280만 대비 증가</td><td>+429만</td><td class="selected-col">+536만</td><td>+631만</td><td>+748만</td></tr>
-</tbody></table></div>
-<p class="caption">※ 가정: 현재 보유 아파트를 계속 보유, 두 부동산 모두 부부 50:50 공동명의. 더 그리드의 향후 과세가액은 분양가의 70%로 가정한 시뮬레이션입니다.</p>
-</section>
-
-<section class="section"><h2>취득세</h2><div class="tax"><div class="taxbox"><div class="l">예산 기준</div><div class="n">약 4.6%</div><div class="small">오피스텔 취득 기준으로 보수적 계산</div></div><div class="taxbox"><div class="l">계산 방식</div><div class="n">분양가 × 세율</div><div class="small">실제 과표·옵션·2031년 세법에 따라 변동</div></div></div><div class="explain"><p><b>공동명의라고 총 취득세가 줄지는 않습니다.</b> 지분대로 나눠 낼 뿐 가구 전체 세액은 같습니다.</p><p><b>분양가와 별도 현금이 필요합니다.</b> 입주·소유권 취득 시점에 잔금과 함께 납부합니다.</p></div></section>
-
-<section class="section"><h2>보유세</h2><div class="tax"><div class="taxbox"><div class="l">현재 가구 부담</div><div class="n">약 280만/년</div><div class="small">기존 아파트 공동명의 기준</div></div><div class="taxbox"><div class="l">계산 전제</div><div class="n">주거용 과세</div><div class="small">향후 실제 용도·공시가·세법에 따라 변동</div></div></div><div class="explain"><p><b>주거용 오피스텔로 과세되면 기존 주택과 함께 주택으로 합산될 수 있습니다.</b> 더 그리드 자체 재산세뿐 아니라 종부세 계산에도 영향을 줄 수 있습니다.</p></div></section>
-
-<section class="section"><h2>5·6군 면적 비교 기준</h2><div class="danger warn"><b>오피스텔 전용면적 숫자를 같은 숫자의 아파트 전용면적과 직접 비교하지 않고, 실제 평면 사용감을 별도로 비교합니다.</b></div><ul class="point"><li><b>5군:</b> 오피스텔 82~96㎡. 84㎡ 타입은 아파트 전용 59㎡급을 기준점으로 비교.</li><li><b>6군:</b> 오피스텔 98~106㎡. 아파트 전용 74㎡급을 중심 비교군으로 사용.</li><li><b>군 경계:</b> 5군 상단 95~96㎡와 6군 하단 98㎡는 면적 차이가 작으므로 실제 평면 확인이 필요.</li></ul></section>
-
-<section class="section"><h2>최근 유사 오피스텔 사례</h2><div class="row"><b>위례 지웰푸르지오</b><span>2026년 7월 전용 84.6㎡가 <b>10.8억원</b>에 실거래</span></div><div class="row"><b>위례 한화 오벨리스크</b><span>65.6~65.9㎡ 약 6.9~7.25억, 77.6㎡는 거래 편차가 확인됨</span></div><div class="row"><b>문정 파크하비오</b><span>2026년 7월 전용 58.84㎡ <b>7.3억원</b>, 49㎡ 전후 약 4.6~4.9억원</span></div><div class="row"><b>평촌 르씨엘</b><span>900실 모집에 2,319건 접수, 단순 평균 약 <b>2.58:1</b></span></div></section>
-
-<section class="section">
-<h2>2031~2036 시세차익 시나리오</h2>
-<div class="explain"><p>아래 수치는 <b>예측이 아니라 동일한 가정을 군별로 적용한 비교용 시뮬레이션</b>입니다. 실제 가격은 시장 상황에 따라 달라질 수 있습니다.</p></div>
-<div class="scenario"><div class="box"><b>보수 시나리오</b><span>4~5군: 2031 분양가의 95%, 이후 연 2%<br>6군: 94%·연 1.8% / 7군: 93%·연 1.5%</span></div><div class="box"><b>기준 시나리오</b><span>4~5군: 2031 +10%, 이후 연 3.5%<br>6군: +9%·연 3.4% / 7군: +8%·연 3.3%</span></div><div class="box"><b>낙관 시나리오</b><span>4~5군: 2031 +20%, 이후 연 5%<br>6군: +20%·연 4.7% / 7군: +20%·연 4.5%</span></div></div>
-<h3>기준 시나리오 비교</h3><div class="scroll-hint">← 좌우로 밀어 군별 비교 →</div>
-<div class="table-wrap"><table class="tax-table group-table"><thead><tr><th>구분</th><th>4군</th><th class="selected-col">5군</th><th>6군</th><th>7군</th></tr></thead><tbody>
-<tr><td>총 공급호수</td><td>53실</td><td class="selected-col">167실</td><td>280실</td><td>152실</td></tr><tr><td>분양가 중간값</td><td>12.74억</td><td class="selected-col">14.97억</td><td>17.02억</td><td>19.51억</td></tr><tr><td>2031 예상가</td><td class="em">14.01억</td><td class="em selected-col">16.47억</td><td class="em">18.55억</td><td class="em">21.07억</td></tr><tr><td>2036 예상가</td><td class="em">16.64억</td><td class="em selected-col">19.56억</td><td class="em">21.93억</td><td class="em">24.78억</td></tr><tr><td>취득세+중도금이자+5년 추가보유세</td><td>1.26억</td><td class="selected-col">1.50억</td><td>1.71억</td><td>1.97억</td></tr><tr><td>2036 순차익*</td><td class="em">+2.64억</td><td class="em selected-col">+3.09억</td><td class="em">+3.20억</td><td class="em">+3.30억</td></tr><tr><td>분양가 대비 순차익률</td><td>20.8%</td><td class="selected-col">20.6%</td><td>18.8%</td><td>16.9%</td></tr><tr><td>50% 대출 4.5% 유지 시**</td><td>+1.21억</td><td class="selected-col">+1.40억</td><td>+1.28억</td><td>+1.11억</td></tr>
-</tbody></table></div>
-<p class="caption">* 순차익 = 2036 예상매도가 - 분양가 - 취득세 - 2031년까지 중도금이자 - 2031~2036의 현재 대비 추가 보유세. 양도소득세·중개수수료·옵션비·관리비 제외.<br>** 입주 후 분양가의 50%를 연 4.5% 대출로 5년간 유지한다고 가정.</p>
-</section>
-
-<section class="section" id="finalJudgment">
-<h2>4~6군 핵심 데이터 정리</h2>
-<div class="row" data-group="4"><b>4군</b><span>53실 · 75~79㎡ · 분양가 11.9~13.6억 · 중간값 12.74억</span></div>
-<div class="row selected-row" data-group="5"><b>5군</b><span>167실 · 82~96㎡ · 분양가 13.3~16.6억 · 최종접수 우선 349 / 기타 305 · 서울우선 신청자 당첨확률 약 29.0%</span></div>
-<div class="row" data-group="6"><b>6군</b><span>280실 · 98~106㎡ · 분양가 약 15.0~19.1억 · 일반 단계 14실 미달</span></div>
-<details><summary>출처 보기</summary><ul class="point">
-<li>청약홈 2026-09-14 최종 접수현황 화면 — 군별 접수건수·경쟁률</li>
-<li><a href="https://songpathegrid.com/">힐스테이트 송파더그리드 공식 홈페이지</a></li>
-<li><a href="https://www.hankyung.com/article/2026091195321">청약통장 가입 여부 무관·재당첨 제한 없음</a></li>
-<li><a href="https://www.sentv.co.kr/article/view/sentv202609110188">송파 더그리드 7개 군·100% 추첨제 청약 안내</a></li>
-<li><a href="https://kkid-monj-travel.tistory.com/308">군별 공급호수·타입·분양가 정리</a></li>
-<li><a href="https://propertyshop.co.kr/hillstate-songpa-thegrid-modelhouse/">군별 공급호수·거주자 우선·일반분양 정리</a></li>
-<li><a href="https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7735&mi=40377">국세청 종합부동산세 안내</a></li>
-<li><a href="https://www.law.go.kr/">국가법령정보센터</a></li>
-</ul></details>
-</section>
-<footer>2026년 9월 기준 · 비교 및 자금계획용</footer>
+<div class="foot">힐스테이트 송파더그리드 · 5군 예비 10번 대응용</div>
 </main>
 <script>
-(function(){
-const groups={
-'4':{value:'11.9~13.6억 · 총 53실',desc:'오피스텔 75~79㎡ · 서울 거주자 우선 10실 · 일반분양 43실'},
-'5':{value:'13.3~16.6억 · 총 167실',desc:'오피스텔 82~96㎡ · 서울 우선 33실 / 일반 134실 · 최종 접수 349 / 305 · 서울 우선 신청자 최종 당첨확률 약 29.0%'},
-'6':{value:'15.0~19.1억 · 총 280실',desc:'오피스텔 98~106㎡ · 서울 우선 56실 / 일반 224실 · 최종 일반 단계 14실 미달'},
-'7':{value:'17.5~21.6억 · 총 152실',desc:'오피스텔 108~119㎡ · 서울 우선 30실 · 일반 122실 · 접수 100 / 93'}
+const typeData={
+'82':{area:82.9362,lo:13.3265,hi:14.5111,go:13.623,hold:14.215},
+'84':{area:84.9548,lo:13.3475,hi:15.0160,go:13.954,hold:14.561},
+'88':{area:88.6848,lo:14.2502,hi:15.5169,go:14.567,hold:15.200},
+'89':{area:89.8339,lo:14.1141,hi:15.3972,go:14.756,hold:15.397},
+'91':{area:91.3172,lo:14.6732,hi:15.9775,go:15.000,hold:15.651},
+'95':{area:95.9534,lo:15.0756,hi:16.6174,go:15.761,hold:16.446},
+'96A':{area:96.4065,lo:14.6304,hi:16.0074,go:15.835,hold:16.524},
+'96B':{area:96.6677,lo:15.0152,hi:16.5685,go:15.878,hold:16.569}
 };
-const buttons=[...document.querySelectorAll('.group-btn')];
-const summary=document.getElementById('selectedSummary');
-const focus4=document.getElementById('group4Focus');
-const focus5=document.getElementById('group5Focus');
-const focus6=document.getElementById('group6Focus');
-function applyGroup(g){
- buttons.forEach(b=>{const on=b.dataset.selectGroup===g;b.classList.toggle('active',on);b.setAttribute('aria-pressed',on?'true':'false');});
- document.querySelectorAll('[data-group]').forEach(el=>{el.classList.remove('group-selected','selected-row');if(el.dataset.group===g){if(el.classList.contains('row'))el.classList.add('selected-row');else el.classList.add('group-selected');}});
- const col=Number(g)-3;
- document.querySelectorAll('.group-table').forEach(table=>{table.querySelectorAll('.selected-col').forEach(c=>c.classList.remove('selected-col'));table.querySelectorAll('tr').forEach(tr=>{const cells=tr.children;if(cells[col])cells[col].classList.add('selected-col');});});
- if(focus4)focus4.classList.toggle('focus-section',g==='4');
- if(focus5)focus5.classList.toggle('focus-section',g==='5');
- if(focus6)focus6.classList.toggle('focus-section',g==='6');
- const info=groups[g];summary.innerHTML='<div class="st">현재 선택 · '+g+'군</div><div class="sv">'+info.value+'</div><div class="sd">'+info.desc+'</div>';
-}
-buttons.forEach(b=>b.addEventListener('click',()=>applyGroup(b.dataset.selectGroup)));
-applyGroup('5');
-})();
+const fmtEok=n=>n.toFixed(2)+'억';
+const fmtMan=n=>Math.round(n*10000).toLocaleString()+'만원';
+function judgeUnit(){const t=document.getElementById('typeSel').value,p=+document.getElementById('unitPrice').value,d=typeData[t];const py=d.area/3.305785;const pp=p*10000/py;document.getElementById('perPyeong').textContent=Math.round(pp).toLocaleString()+'만원/평';document.getElementById('typeRange').textContent=fmtEok(d.lo)+'~'+fmtEok(d.hi);const box=document.getElementById('unitStatus');box.className='status ';if(p<d.lo||p>d.hi){box.classList.add('stop');box.textContent='입력가격이 공고상 '+t+'타입 범위를 벗어납니다.';return;}if(p<=d.go){box.classList.add('go');box.textContent='진행 구간 · 가격/면적 기준 1차 필터 통과';}else if(p<=Math.min(d.hold,d.hi)){box.classList.add('hold');box.textContent='조건부 진행 · 동·향·층·조망을 확인한 뒤 결정';}else{box.classList.add('stop');box.textContent='포기 검토 구간 · 더 큰 타입 저가호실과 가격이 겹치는지 비교';}}
+function daysBetween(a,b){return (b-a)/86400000;}
+const draws=['2027-10-29','2028-10-31','2029-10-31','2030-03-29','2030-09-30'];
+function calcMoney(){const p=+document.getElementById('salePrice').value,r=+document.getElementById('rate').value/100,ar=+document.getElementById('acqRate').value/100,occ=new Date(document.getElementById('occDate').value+'T00:00:00');const dep=.1*p,dep2=dep-.1,mid=.5*p,bal=.4*p,acq=p*ar;let interest=0;draws.forEach(x=>{const d=new Date(x+'T00:00:00');if(occ>d)interest+=.1*p*r*daysBetween(d,occ)/365;});const equity=dep+bal+acq+interest;const all=p+acq+interest;document.getElementById('depositTotal').textContent=fmtEok(dep);document.getElementById('deposit2').textContent=fmtEok(dep2);document.getElementById('midLoan').textContent=fmtEok(mid);document.getElementById('interest').textContent=fmtEok(interest);document.getElementById('balance').textContent=fmtEok(bal);document.getElementById('acqTax').textContent=fmtEok(acq);document.getElementById('equityNeed').textContent=fmtEok(equity);document.getElementById('allCash').textContent=fmtEok(all);calcMove();}
+function brokerRate(eok){if(eok<.5)return .005;if(eok<1)return .004;if(eok<6)return .003;if(eok<12)return .004;if(eok<15)return .005;return .006;}
+function calcMove(){const out=+document.getElementById('wiryeJeonse').value,inn=+document.getElementById('daechiJeonse').value,mort=+document.getElementById('mortgagePay').value,mv=+document.getElementById('moveCost').value;const bo=out*brokerRate(out),bi=inn*brokerRate(inn);const gap=inn+bo+bi+mort+mv-out;const contract=.1*(+document.getElementById('salePrice').value);document.getElementById('brokerOut').textContent=fmtMan(bo);document.getElementById('brokerIn').textContent=fmtMan(bi);document.getElementById('moveGap').textContent=(gap>=0?'+':'')+fmtEok(gap);document.getElementById('movePlusContract').textContent=fmtEok(gap+contract);}
+['typeSel','unitPrice'].forEach(id=>document.getElementById(id).addEventListener('input',judgeUnit));['salePrice','rate','acqRate','occDate'].forEach(id=>document.getElementById(id).addEventListener('input',calcMoney));['wiryeJeonse','daechiJeonse','mortgagePay','moveCost'].forEach(id=>document.getElementById(id).addEventListener('input',calcMove));document.querySelectorAll('.preset button').forEach(b=>b.addEventListener('click',()=>{document.getElementById('daechiJeonse').value=b.dataset.jeonse;calcMove();}));judgeUnit();calcMoney();
 </script>
 </body>
 </html>
