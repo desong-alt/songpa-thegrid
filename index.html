@@ -40,7 +40,30 @@
     .note p { margin:0 0 6px; }
     .note p:last-child { margin-bottom:0; }
     .formula { margin:12px 0 0; font-size:12px; color:var(--muted); overflow-wrap:anywhere; }
+    .dsr-setup { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:15px; }
+    .dsr-setup .control { background:#fbfdff; }
+    .dsr-setup .control.full { grid-column:1/-1; }
+    .assumption { margin:5px 0 0; color:var(--muted); font-size:12px; }
+    .choices { display:flex; gap:8px; margin-top:10px; }
+    .choice { display:flex; align-items:center; gap:8px; flex:1; min-height:44px; padding:9px 11px; border:1px solid var(--line); border-radius:10px; background:#fff; cursor:pointer; }
+    .choice:focus-within { outline:2px solid var(--blue); outline-offset:2px; }
+    .choice input { position:absolute; opacity:0; width:1px; height:1px; }
+    .checkmark { display:grid; place-items:center; width:20px; height:20px; flex:none; border:1.5px solid #8da1bd; border-radius:5px; color:transparent; font-size:14px; line-height:1; }
+    .choice input:checked + .checkmark { border-color:var(--blue); background:var(--blue); color:white; }
+    .dsr-setup select { width:100%; margin-top:9px; padding:10px; border:1px solid var(--line); border-radius:9px; background:#fff; color:var(--ink); font:inherit; font-size:14px; }
+    .dsr-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:13px; }
+    .dsr-card { min-width:0; padding:15px; border:1px solid var(--line); border-radius:14px; background:#f7faff; }
+    .dsr-card h3 { margin:0; font-size:15px; }
+    .dsr-card .percent { display:block; margin:5px 0; color:#123c9a; font-size:29px; font-weight:800; font-variant-numeric:tabular-nums; }
+    .dsr-card .small { margin:0; color:var(--muted); font-size:12px; }
+    .dsr-card dl { display:grid; grid-template-columns:1fr auto; gap:5px 8px; margin:12px 0 0; font-size:12px; }
+    .dsr-card dt { color:var(--muted); }
+    .dsr-card dd { margin:0; text-align:right; font-variant-numeric:tabular-nums; }
+    .dsr-card dt:last-of-type,.dsr-card dd:last-of-type { padding-top:6px; border-top:1px solid var(--line); font-weight:800; color:var(--ink); }
+    .sources { margin:12px 0 0; padding-left:19px; color:var(--muted); font-size:11px; }
+    .sources a { color:var(--blue); }
     @media (max-width:600px) { main { padding:8px 8px max(24px,env(safe-area-inset-bottom)); } header { padding:20px 16px; } section { padding:15px; } .controls,.results { grid-template-columns:1fr; } .control.wide,.result.primary { grid-column:auto; } .result.primary { padding:16px; } }
+    @media (max-width:600px) { .dsr-setup,.dsr-cards { grid-template-columns:1fr; } .dsr-setup .control.full { grid-column:auto; } }
     @media (max-width:330px) { section { padding:12px; } .control { padding:11px; } label { font-size:13px; } output { font-size:13px; } }
   </style>
 </head>
@@ -127,6 +150,43 @@
       <p>대출은 모두 연 5% 단리로 월 이자를 추정합니다. 실제 대출 승인액, 금리, 보증·중개 비용 등은 반영하지 않았습니다. 타입별 범위 안에서 고른 분양가가 실제 특정 호실의 분양가라는 뜻은 아닙니다.</p>
     </div>
   </section>
+
+  <section aria-labelledby="dsr-title">
+    <h2 id="dsr-title">4. 아빠·엄마 DSR 간이 계산</h2>
+    <p class="intro">각자의 연봉 1.5억을 기준으로, 대출 명의별 연간 상환액을 따로 계산합니다.</p>
+    <div class="dsr-setup">
+      <div class="control"><strong>아빠 연봉 1.5억</strong><p class="assumption">중푸 주담대 4.3억 · 월 원리금 190만원은 아빠 명의</p></div>
+      <div class="control"><strong>엄마 연봉 1.5억</strong><p class="assumption">전세자금대출은 엄마 명의로 가정</p></div>
+      <div class="control full"><strong>마이너스통장</strong><p class="assumption">선택한 사용액을 약정 한도로 가정하고, 아빠·엄마 명의에 절반씩 배분</p></div>
+      <div class="control full">
+        <strong id="mg-owner-label">새마을금고 대출 명의</strong>
+        <div class="choices" role="group" aria-labelledby="mg-owner-label">
+          <label class="choice"><input type="radio" name="mgBorrower" value="dad" checked><span class="checkmark" aria-hidden="true">✓</span>아빠 대출</label>
+          <label class="choice"><input type="radio" name="mgBorrower" value="mom"><span class="checkmark" aria-hidden="true">✓</span>엄마 대출</label>
+        </div>
+      </div>
+      <div class="control full">
+        <label for="mgYears">새마을금고 대출 DSR 산정 가정</label>
+        <select id="mgYears"><option value="8" selected>비주택담보대출 · 8년</option><option value="5">신용대출 · 5년</option></select>
+        <p class="assumption">실제 대출 상품의 상환 방식에 맞춰 선택하세요.</p>
+      </div>
+    </div>
+    <div class="dsr-cards" aria-live="polite">
+      <div class="dsr-card">
+        <h3>아빠 DSR</h3><strong class="percent" id="dadDsr">—</strong><p class="small">연봉 1.5억 대비</p>
+        <dl><dt>중푸 주담대 연 원리금</dt><dd id="dadMortgageDsr">—</dd><dt>마통 연 상환액</dt><dd id="dadLineDsr">—</dd><dt>새마을금고 연 상환액</dt><dd id="dadMgDsr">—</dd><dt>연 상환액 합계</dt><dd id="dadAnnualDsr">—</dd></dl>
+      </div>
+      <div class="dsr-card">
+        <h3>엄마 DSR</h3><strong class="percent" id="momDsr">—</strong><p class="small">연봉 1.5억 대비</p>
+        <dl><dt>전세대출 연 이자</dt><dd id="momRentDsr">—</dd><dt>마통 연 상환액</dt><dd id="momLineDsr">—</dd><dt>새마을금고 연 상환액</dt><dd id="momMgDsr">—</dd><dt>연 상환액 합계</dt><dd id="momAnnualDsr">—</dd></dl>
+      </div>
+    </div>
+    <div class="note">
+      <p>간이 DSR = (각 차주의 연 원리금 상환액 ÷ 연봉 1.5억) × 100. 중푸 주담대는 남은 월 원리금 × 12, 전세대출은 1주택자 수도권 대출로 DSR이 적용된다고 가정해 연 이자만 반영합니다. 새마을금고와 마통은 선택 금액 ÷ 산정만기 + 연 5% 이자로 추정합니다.</p>
+      <p>마통은 실제 사용액보다 약정 한도가 크면 한도 전체가 DSR에 반영될 수 있습니다. 스트레스 DSR, 실제 상환방식, 다른 부채, 금융기관별 심사 기준은 반영하지 않아 대출 승인 여부를 뜻하지 않습니다.</p>
+    </div>
+    <ul class="sources"><li><a href="https://www.fsc.go.kr/po020201/85518">금융위원회 · 전세대출 DSR 문답</a></li><li><a href="https://www.fsc.go.kr/no040101?cnId=1038">금융위원회 · 신용대출·비주택담보대출 산정만기</a></li><li><a href="https://www.fsc.go.kr/no040101?cnId=1035">금융위원회 · 마이너스통장 한도와 DSR</a></li></ul>
+  </section>
 </main>
 <script>
   const prices = [
@@ -145,6 +205,7 @@
   const priceEok = value => value.toFixed(4)+'억';
   const man = value => Number(value.toFixed(1)).toLocaleString('ko-KR',{maximumFractionDigits:1})+'만원';
   const interest = amount => amount * 10000 * .05 / 12;
+  const annualDsrPayment = (amount, years) => amount * 10000 / years + amount * 10000 * .05;
 
   function update() {
     const selected = prices[Number(byId('unitType').value)];
@@ -188,8 +249,25 @@
     byId('breakPayoff').textContent = '−'+eok(payoff);
     byId('breakLoans').textContent = '+'+eok(loans);
     byId('breakTotal').textContent = eok(available,5);
+
+    const dadMortgage = mortgageMonthly * 12;
+    const momRent = interest(rentLoan) * 12;
+    const lineEach = annualDsrPayment(creditLine / 2, 5);
+    const mgAnnual = annualDsrPayment(mgLoan, Number(byId('mgYears').value));
+    const mgBorrower = document.querySelector('input[name="mgBorrower"]:checked').value;
+    const dadMg = mgBorrower === 'dad' ? mgAnnual : 0;
+    const momMg = mgBorrower === 'mom' ? mgAnnual : 0;
+    const dadAnnual = dadMortgage + lineEach + dadMg;
+    const momAnnual = momRent + lineEach + momMg;
+    byId('dadDsr').textContent = (dadAnnual / 15000 * 100).toFixed(1)+'%';
+    byId('momDsr').textContent = (momAnnual / 15000 * 100).toFixed(1)+'%';
+    for (const [id,value] of [['dadMortgageDsr',dadMortgage],['dadLineDsr',lineEach],['dadMgDsr',dadMg],['dadAnnualDsr',dadAnnual],['momRentDsr',momRent],['momLineDsr',lineEach],['momMgDsr',momMg],['momAnnualDsr',momAnnual]]) {
+      byId(id).textContent = man(value);
+    }
   }
   sliders.forEach(id => byId(id).addEventListener('input',update));
+  document.querySelectorAll('input[name="mgBorrower"]').forEach(input => input.addEventListener('change',update));
+  byId('mgYears').addEventListener('change',update);
   update();
 </script>
 </body>
