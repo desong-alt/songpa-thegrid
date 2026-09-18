@@ -76,8 +76,16 @@
 
   <section aria-labelledby="funding-title">
     <h2 id="funding-title">1. 전세금과 그리드 계약금</h2>
-    <p class="intro">분양가 범위에서 선택한 금액의 10%를 계약금으로 계산합니다.</p>
+    <p class="intro">그리드 계약 여부를 선택하세요. 계약 시 분양가의 10%를 계약금으로 계산합니다.</p>
     <div class="controls">
+      <div class="control wide">
+        <strong id="grid-contract-label">그리드 계약 여부</strong>
+        <div class="choices" role="group" aria-labelledby="grid-contract-label">
+          <label class="choice"><input type="radio" name="gridContract" value="yes" checked><span class="checkmark" aria-hidden="true">✓</span>계약</label>
+          <label class="choice"><input type="radio" name="gridContract" value="no"><span class="checkmark" aria-hidden="true">✓</span>미계약</label>
+        </div>
+        <p class="subline" id="contractHint">계약금은 선택한 분양가의 10%입니다.</p>
+      </div>
       <div class="control wide">
         <div class="control-head"><label for="unitType">5군 타입</label><output id="unitTypeValue" for="unitType">82타입</output></div>
         <input id="unitType" type="range" min="0" max="7" step="1" value="0">
@@ -132,7 +140,7 @@
     <p class="intro">현재 선택한 금액을 모두 사용할 수 있다고 가정한 자금 상한입니다.</p>
     <div class="results">
       <div class="result primary"><span>대치동 최대 전세 가능금액</span><strong id="maxRent">—</strong></div>
-      <div class="result"><span>그리드 계약금 · 분양가 10%</span><strong id="deposit">—</strong></div>
+      <div class="result"><span id="depositLabel">그리드 계약금 · 분양가 10%</span><strong id="deposit">—</strong></div>
       <div class="result"><span>추가 대출 월 이자 합계</span><strong id="extraInterest">—</strong></div>
       <div class="result"><span>중푸 주담대 잔여 월 원리금 · 단순 추정</span><strong id="remainingMortgage">—</strong></div>
       <div class="result total"><span>월 총부담 · 추가 이자 + 잔여 원리금</span><strong id="monthlyTotal">—</strong></div>
@@ -156,13 +164,20 @@
     <p class="intro">각자의 연봉 1.5억을 기준으로, 대출 명의별 연간 상환액을 따로 계산합니다.</p>
     <div class="dsr-setup">
       <div class="control"><strong>아빠 연봉 1.5억</strong><p class="assumption">중푸 주담대 4.3억 · 월 원리금 190만원은 아빠 명의</p></div>
-      <div class="control"><strong>엄마 연봉 1.5억</strong><p class="assumption">전세자금대출은 엄마 명의로 가정</p></div>
+      <div class="control"><strong>엄마 연봉 1.5억</strong><p class="assumption">전세자금대출 명의는 아래에서 선택</p></div>
       <div class="control full"><strong>마이너스통장</strong><p class="assumption">선택한 사용액을 약정 한도로 가정하고, 아빠·엄마 명의에 절반씩 배분</p></div>
+      <div class="control full">
+        <strong id="rent-owner-label">전세자금대출 명의</strong>
+        <div class="choices" role="group" aria-labelledby="rent-owner-label">
+          <label class="choice"><input type="radio" name="rentBorrower" value="dad"><span class="checkmark" aria-hidden="true">✓</span>아빠 대출</label>
+          <label class="choice"><input type="radio" name="rentBorrower" value="mom" checked><span class="checkmark" aria-hidden="true">✓</span>엄마 대출</label>
+        </div>
+      </div>
       <div class="control full">
         <strong id="mg-owner-label">새마을금고 대출 명의</strong>
         <div class="choices" role="group" aria-labelledby="mg-owner-label">
-          <label class="choice"><input type="radio" name="mgBorrower" value="dad" checked><span class="checkmark" aria-hidden="true">✓</span>아빠 대출</label>
-          <label class="choice"><input type="radio" name="mgBorrower" value="mom"><span class="checkmark" aria-hidden="true">✓</span>엄마 대출</label>
+          <label class="choice"><input type="radio" name="mgBorrower" value="dad"><span class="checkmark" aria-hidden="true">✓</span>아빠 대출</label>
+          <label class="choice"><input type="radio" name="mgBorrower" value="mom" checked><span class="checkmark" aria-hidden="true">✓</span>엄마 대출</label>
         </div>
       </div>
       <div class="control full">
@@ -174,7 +189,7 @@
     <div class="dsr-cards" aria-live="polite">
       <div class="dsr-card">
         <h3>아빠 DSR</h3><strong class="percent" id="dadDsr">—</strong><p class="small">연봉 1.5억 대비</p>
-        <dl><dt>중푸 주담대 연 원리금</dt><dd id="dadMortgageDsr">—</dd><dt>마통 연 상환액</dt><dd id="dadLineDsr">—</dd><dt>새마을금고 연 상환액</dt><dd id="dadMgDsr">—</dd><dt>연 상환액 합계</dt><dd id="dadAnnualDsr">—</dd></dl>
+        <dl><dt>중푸 주담대 연 원리금</dt><dd id="dadMortgageDsr">—</dd><dt>전세대출 연 이자</dt><dd id="dadRentDsr">—</dd><dt>마통 연 상환액</dt><dd id="dadLineDsr">—</dd><dt>새마을금고 연 상환액</dt><dd id="dadMgDsr">—</dd><dt>연 상환액 합계</dt><dd id="dadAnnualDsr">—</dd></dl>
       </div>
       <div class="dsr-card">
         <h3>엄마 DSR</h3><strong class="percent" id="momDsr">—</strong><p class="small">연봉 1.5억 대비</p>
@@ -223,7 +238,8 @@
     const rentLoan = Number(byId('rentLoan').value);
     const mgLoan = Number(byId('mgLoan').value);
     const creditLine = Number(byId('creditLine').value);
-    const deposit = sale * .1;
+    const contracted = document.querySelector('input[name="gridContract"]:checked').value === 'yes';
+    const deposit = contracted ? sale * .1 : 0;
     const loans = rentLoan + mgLoan + creditLine;
     const available = rent - deposit - payoff + loans;
     const addedInterest = interest(loans);
@@ -240,32 +256,39 @@
     byId('mgLoanInterest').textContent = man(interest(mgLoan));
     byId('creditLineInterest').textContent = man(interest(creditLine));
     byId('maxRent').textContent = eok(available,5);
-    byId('deposit').textContent = eok(deposit,5);
+    byId('deposit').textContent = contracted ? eok(deposit,5) : '0원';
+    byId('depositLabel').textContent = contracted ? '그리드 계약금 · 분양가 10%' : '그리드 계약금 · 미계약';
+    byId('contractHint').textContent = contracted ? '계약금은 선택한 분양가의 10%입니다.' : '미계약이므로 계약금 0원입니다. 분양가는 계산에 반영되지 않습니다.';
     byId('extraInterest').textContent = man(addedInterest);
     byId('remainingMortgage').textContent = man(mortgageMonthly);
     byId('monthlyTotal').textContent = man(addedInterest + mortgageMonthly);
     byId('breakRent').textContent = '+'+eok(rent);
-    byId('breakDeposit').textContent = '−'+eok(deposit,5);
+    byId('breakDeposit').textContent = contracted ? '−'+eok(deposit,5) : '−0원';
     byId('breakPayoff').textContent = '−'+eok(payoff);
     byId('breakLoans').textContent = '+'+eok(loans);
     byId('breakTotal').textContent = eok(available,5);
 
     const dadMortgage = mortgageMonthly * 12;
-    const momRent = interest(rentLoan) * 12;
+    const rentAnnual = interest(rentLoan) * 12;
+    const rentBorrower = document.querySelector('input[name="rentBorrower"]:checked').value;
+    const dadRent = rentBorrower === 'dad' ? rentAnnual : 0;
+    const momRent = rentBorrower === 'mom' ? rentAnnual : 0;
     const lineEach = annualDsrPayment(creditLine / 2, 5);
     const mgAnnual = annualDsrPayment(mgLoan, Number(byId('mgYears').value));
     const mgBorrower = document.querySelector('input[name="mgBorrower"]:checked').value;
     const dadMg = mgBorrower === 'dad' ? mgAnnual : 0;
     const momMg = mgBorrower === 'mom' ? mgAnnual : 0;
-    const dadAnnual = dadMortgage + lineEach + dadMg;
+    const dadAnnual = dadMortgage + dadRent + lineEach + dadMg;
     const momAnnual = momRent + lineEach + momMg;
     byId('dadDsr').textContent = (dadAnnual / 15000 * 100).toFixed(1)+'%';
     byId('momDsr').textContent = (momAnnual / 15000 * 100).toFixed(1)+'%';
-    for (const [id,value] of [['dadMortgageDsr',dadMortgage],['dadLineDsr',lineEach],['dadMgDsr',dadMg],['dadAnnualDsr',dadAnnual],['momRentDsr',momRent],['momLineDsr',lineEach],['momMgDsr',momMg],['momAnnualDsr',momAnnual]]) {
+    for (const [id,value] of [['dadMortgageDsr',dadMortgage],['dadRentDsr',dadRent],['dadLineDsr',lineEach],['dadMgDsr',dadMg],['dadAnnualDsr',dadAnnual],['momRentDsr',momRent],['momLineDsr',lineEach],['momMgDsr',momMg],['momAnnualDsr',momAnnual]]) {
       byId(id).textContent = man(value);
     }
   }
   sliders.forEach(id => byId(id).addEventListener('input',update));
+  document.querySelectorAll('input[name="gridContract"]').forEach(input => input.addEventListener('change',update));
+  document.querySelectorAll('input[name="rentBorrower"]').forEach(input => input.addEventListener('change',update));
   document.querySelectorAll('input[name="mgBorrower"]').forEach(input => input.addEventListener('change',update));
   byId('mgYears').addEventListener('change',update);
   update();
