@@ -23,6 +23,11 @@
     output { flex:none; color:var(--blue); font-size:15px; font-weight:800; font-variant-numeric:tabular-nums; white-space:nowrap; }
     input[type="range"] { display:block; width:100%; height:32px; margin:0; accent-color:var(--blue); cursor:pointer; touch-action:none; }
     .ends { display:flex; justify-content:space-between; gap:8px; margin-top:1px; color:var(--muted); font-size:11px; font-variant-numeric:tabular-nums; }
+    .type-ticks { display:flex; justify-content:space-between; height:23px; margin:1px 8px 0; color:var(--muted); font-size:11px; font-variant-numeric:tabular-nums; }
+    .type-ticks span { position:relative; flex:0 0 0; }
+    .type-ticks span::before { content:""; position:absolute; top:0; left:0; width:1px; height:5px; background:#9aabc3; }
+    .type-ticks small { position:absolute; top:6px; left:0; transform:translateX(-50%); font:inherit; white-space:nowrap; }
+    .type-ticks span.active small { color:var(--blue); font-weight:800; }
     .subline { margin:6px 0 0; color:var(--muted); font-size:12px; }
     .results { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:15px; }
     .result { min-width:0; padding:14px; border-radius:14px; background:#f5f8fc; }
@@ -94,7 +99,7 @@
       <div class="control wide">
         <div class="control-head"><label for="unitType">5군 타입</label><output id="unitTypeValue" for="unitType">82타입</output></div>
         <input id="unitType" type="range" min="0" max="7" step="1" value="0">
-        <div class="ends"><span>82</span><span>84 · 88 · 89 · 91 · 95</span><span>96A · 96B</span></div>
+        <div class="type-ticks" id="typeTicks" aria-hidden="true"><span class="active"><small>82</small></span><span><small>84</small></span><span><small>88</small></span><span><small>89</small></span><span><small>91</small></span><span><small>95</small></span><span><small>96A</small></span><span><small>96B</small></span></div>
       </div>
       <div class="control wide">
         <div class="control-head"><label for="salePrice">5군 분양가</label><output id="salePriceValue" for="salePrice">13.3265억</output></div>
@@ -261,6 +266,8 @@
     const mortgageMonthly = 190 * (4.3 - payoff) / 4.3;
 
     byId('unitTypeValue').textContent = selected.type+'타입';
+    byId('unitType').setAttribute('aria-valuetext',selected.type+'타입');
+    Array.from(byId('typeTicks').children).forEach((tick,i)=>tick.classList.toggle('active',i===Number(byId('unitType').value)));
     byId('salePriceValue').textContent = priceEok(sale);
     byId('priceMin').textContent = priceEok(selected.min);
     byId('priceMax').textContent = priceEok(selected.max);
