@@ -62,6 +62,11 @@
     .dsr-card dt:last-of-type,.dsr-card dd:last-of-type { padding-top:6px; border-top:1px solid var(--line); font-weight:800; color:var(--ink); }
     .sources { margin:12px 0 0; padding-left:19px; color:var(--muted); font-size:11px; }
     .sources a { color:var(--blue); }
+    .plan-figure { margin:15px 0 0; }
+    .plan-figure a { display:block; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+    .plan-figure img { display:block; width:100%; height:auto; }
+    .plan-figure figcaption { margin-top:8px; color:var(--muted); font-size:12px; }
+    .plan-link { display:inline-block; margin-top:10px; color:var(--blue); font-size:14px; font-weight:700; }
     @media (max-width:600px) { main { padding:8px 8px max(24px,env(safe-area-inset-bottom)); } header { padding:20px 16px; } section { padding:15px; } .controls,.results { grid-template-columns:1fr; } .control.wide,.result.primary { grid-column:auto; } .result.primary { padding:16px; } }
     @media (max-width:600px) { .dsr-setup,.dsr-cards { grid-template-columns:1fr; } .dsr-setup .control.full { grid-column:auto; } }
     @media (max-width:330px) { section { padding:12px; } .control { padding:11px; } label { font-size:13px; } output { font-size:13px; } }
@@ -201,6 +206,16 @@
       <p>마통은 실제 사용액보다 약정 한도가 크면 한도 전체가 DSR에 반영될 수 있습니다. 스트레스 DSR, 실제 상환방식, 다른 부채, 금융기관별 심사 기준은 반영하지 않아 대출 승인 여부를 뜻하지 않습니다.</p>
     </div>
     <ul class="sources"><li><a href="https://www.fsc.go.kr/po020201/85518">금융위원회 · 전세대출 DSR 문답</a></li><li><a href="https://www.fsc.go.kr/no040101?cnId=1038">금융위원회 · 신용대출·비주택담보대출 산정만기</a></li><li><a href="https://www.fsc.go.kr/no040101?cnId=1035">금융위원회 · 마이너스통장 한도와 DSR</a></li></ul>
+  </section>
+
+  <section aria-labelledby="plan-title">
+    <h2 id="plan-title">5. 5군 단지배치도</h2>
+    <p class="intro">공유해주신 5군 배치 이미지입니다. 109·110동까지 포함되어 있습니다.</p>
+    <figure class="plan-figure">
+      <a href="assets/site_plan_5gun_v2.png" target="_blank" rel="noopener" aria-label="5군 단지배치도 원본 크기로 열기"><img src="assets/site_plan_5gun_v2.png" alt="송파더그리드 101~110동 단지배치도. 5군 해당 라인이 파란색으로 표시되어 있습니다." width="1342" height="1392" loading="lazy"></a>
+      <figcaption>작은 화면에서는 이미지를 눌러 원본 크기로 확대해 보세요.</figcaption>
+    </figure>
+    <a class="plan-link" href="assets/site_plan_5gun_v2.png" target="_blank" rel="noopener">단지배치도 원본 열기 ↗</a>
   </section>
 </main>
 <script>
