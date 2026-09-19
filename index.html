@@ -29,6 +29,7 @@
     .type-ticks small { position:absolute; top:6px; left:0; transform:translateX(-50%); font:inherit; white-space:nowrap; }
     .type-ticks span.active small { color:var(--blue); font-weight:800; }
     .subline { margin:6px 0 0; color:var(--muted); font-size:12px; }
+    .dsr-detail { margin:4px 0 0; color:#31507d; font-size:12px; line-height:1.4; }
     .results { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:15px; }
     .result { min-width:0; padding:14px; border-radius:14px; background:#f5f8fc; }
     .result strong { display:block; font-size:22px; line-height:1.2; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
@@ -129,18 +130,21 @@
         <input id="rentLoan" type="range" min="0" max="2" step="0.05" value="2">
         <div class="ends"><span>0억</span><span>2억</span></div>
         <p class="subline">월 이자 <strong id="rentLoanInterest">83.3만원</strong></p>
+        <p class="dsr-detail" id="rentLoanDsr">DSR 반영 · 아빠: —</p>
       </div>
       <div class="control wide">
         <div class="control-head"><label for="mgLoan">새마을금고 대출</label><output id="mgLoanValue" for="mgLoan">1.5억</output></div>
         <input id="mgLoan" type="range" min="0" max="2" step="0.05" value="1.5">
         <div class="ends"><span>0억</span><span>2억</span></div>
         <p class="subline">월 이자 <strong id="mgLoanInterest">62.5만원</strong></p>
+        <p class="dsr-detail" id="mgLoanDsr">DSR 반영 · 엄마: —</p>
       </div>
       <div class="control wide">
         <div class="control-head"><label for="creditLine">마이너스통장 사용액</label><output id="creditLineValue" for="creditLine">2억</output></div>
         <input id="creditLine" type="range" min="0" max="2" step="0.05" value="2">
         <div class="ends"><span>0억</span><span>2억</span></div>
         <p class="subline">월 이자 <strong id="creditLineInterest">83.3만원</strong></p>
+        <p class="dsr-detail" id="creditLineDsr">DSR 반영 · 아빠·엄마 각각: —</p>
       </div>
     </div>
   </section>
@@ -207,7 +211,7 @@
       </div>
     </div>
     <div class="note">
-      <p>간이 DSR = (각 차주의 연 원리금 상환액 ÷ 연봉 1.5억) × 100. 중푸 주담대는 남은 월 원리금 × 12, 전세대출은 1주택자 수도권 대출로 DSR이 적용된다고 가정해 연 이자만 반영합니다. 새마을금고와 마통은 선택 금액 ÷ 산정만기 + 연 5% 이자로 추정합니다.</p>
+      <p>대출별 DSR 반영액은 각 슬라이더 아래에서 연 상환액과 연봉 대비 비중으로 바로 확인할 수 있습니다. 간이 DSR = (각 차주의 연 원리금 상환액 ÷ 연봉 1.5억) × 100. 중푸 주담대는 남은 월 원리금 × 12, 전세대출은 1주택자 수도권 대출로 DSR이 적용된다고 가정해 연 이자만 반영합니다. 새마을금고와 마통은 선택 금액 ÷ 산정만기 + 연 5% 이자로 추정합니다.</p>
       <p>마통은 실제 사용액보다 약정 한도가 크면 한도 전체가 DSR에 반영될 수 있습니다. 스트레스 DSR, 실제 상환방식, 다른 부채, 금융기관별 심사 기준은 반영하지 않아 대출 승인 여부를 뜻하지 않습니다.</p>
     </div>
     <ul class="sources"><li><a href="https://www.fsc.go.kr/po020201/85518">금융위원회 · 전세대출 DSR 문답</a></li><li><a href="https://www.fsc.go.kr/no040101?cnId=1038">금융위원회 · 신용대출·비주택담보대출 산정만기</a></li><li><a href="https://www.fsc.go.kr/no040101?cnId=1035">금융위원회 · 마이너스통장 한도와 DSR</a></li></ul>
@@ -241,6 +245,8 @@
   const man = value => Number(value.toFixed(1)).toLocaleString('ko-KR',{maximumFractionDigits:1})+'만원';
   const interest = amount => amount * 10000 * .05 / 12;
   const annualDsrPayment = (amount, years) => amount * 10000 / years + amount * 10000 * .05;
+  const dsrPercent = annual => (annual / 15000 * 100).toFixed(1)+'%p';
+  const dsrBreakdown = annual => man(annual)+' · '+dsrPercent(annual);
 
   function update() {
     const selected = prices[Number(byId('unitType').value)];
@@ -302,11 +308,16 @@
     const momMg = mgBorrower === 'mom' ? mgAnnual : 0;
     const dadAnnual = dadMortgage + dadRent + lineEach + dadMg;
     const momAnnual = momRent + lineEach + momMg;
+    byId('rentLoanDsr').textContent = 'DSR 반영 · '+(rentBorrower === 'dad' ? '아빠' : '엄마')+': 연 '+dsrBreakdown(rentAnnual);
+    byId('mgLoanDsr').textContent = 'DSR 반영 · '+(mgBorrower === 'dad' ? '아빠' : '엄마')+': 연 '+dsrBreakdown(mgAnnual);
+    byId('creditLineDsr').textContent = 'DSR 반영 · 아빠·엄마 각각: 연 '+dsrBreakdown(lineEach);
     byId('dadDsr').textContent = (dadAnnual / 15000 * 100).toFixed(1)+'%';
     byId('momDsr').textContent = (momAnnual / 15000 * 100).toFixed(1)+'%';
-    for (const [id,value] of [['dadMortgageDsr',dadMortgage],['dadRentDsr',dadRent],['dadLineDsr',lineEach],['dadMgDsr',dadMg],['dadAnnualDsr',dadAnnual],['momRentDsr',momRent],['momLineDsr',lineEach],['momMgDsr',momMg],['momAnnualDsr',momAnnual]]) {
-      byId(id).textContent = man(value);
+    for (const [id,value] of [['dadMortgageDsr',dadMortgage],['dadRentDsr',dadRent],['dadLineDsr',lineEach],['dadMgDsr',dadMg],['momRentDsr',momRent],['momLineDsr',lineEach],['momMgDsr',momMg]]) {
+      byId(id).textContent = dsrBreakdown(value);
     }
+    byId('dadAnnualDsr').textContent = man(dadAnnual);
+    byId('momAnnualDsr').textContent = man(momAnnual);
   }
   sliders.forEach(id => byId(id).addEventListener('input',update));
   document.querySelectorAll('input[name="gridContract"]').forEach(input => input.addEventListener('change',update));
