@@ -112,7 +112,7 @@ label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}input,se
 
 <section class="section">
 <h2>대출 원리금 · 완공까지 매몰비용</h2>
-<div class="note-box" style="margin-bottom:12px">기본 완공시점은 <b>2031년 7월</b>로 두고 현재 기준 약 <b>58개월</b>을 계산합니다. 아래 금리·만기는 직접 수정할 수 있습니다. 개포한신의 이주비·추가대출은 완공 전에는 원금상환 없이 이자만 납부하는 구조로 가정하고, 별도로 30년 원리금균등 환산액도 함께 보여줍니다.</div>
+<div class="note-box" style="margin-bottom:12px">기본 완공시점은 <b>2031년 7월</b>로 두고 현재부터 완공까지 약 <b>58개월</b>을 계산합니다. 개포한신은 <b>완공 전에는 승계 이주비 10억만 이자 발생</b>, 추가분담금 성격의 <b>7억 대출은 2031년 이후 실행</b>되는 것으로 가정합니다. 7억은 2031~2036년 60개월 이자를 별도로 계산합니다.</div>
 
 <div class="compare-grid">
   <div class="loan-card">
@@ -130,16 +130,18 @@ label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}input,se
   </div>
 
   <div class="loan-card">
-    <h3>개포한신 · 총 대출 17억</h3>
+    <h3>개포한신 · 시점별 대출</h3>
     <div class="controls" style="grid-template-columns:1fr 1fr;margin:10px 0 12px;padding:10px">
-      <div><label for="basicRate">기본 이주비 10억 금리(%)</label><input id="basicRate" type="number" step="0.01" value="4.48"></div>
-      <div><label for="extraRate">추가대출 7억 금리(%)</label><input id="extraRate" type="number" step="0.01" value="5.98"></div>
+      <div><label for="basicRate">완공 전 이주비 10억 금리(%)</label><input id="basicRate" type="number" step="0.01" value="4.48"></div>
+      <div><label for="extraRate">2031 이후 추가 7억 금리(%)</label><input id="extraRate" type="number" step="0.01" value="5.98"></div>
     </div>
-    <div class="metric"><span>가중평균 금리</span><b id="gaepoWeighted">-</b></div>
-    <div class="metric"><span>완공 전 월 이자</span><b id="gaepoMonthlyInterest">-</b></div>
-    <div class="metric"><span>완공까지 매몰이자</span><b id="gaepoInterest">-</b></div>
-    <div class="metric"><span>2031 잔존대출</span><b>17.0억</b></div>
-    <div class="metric"><span>30년 원리금 환산</span><b id="gaepoAmortized">-</b></div>
+    <div class="metric"><span>2026~2031 적용 대출</span><b>10.0억</b></div>
+    <div class="metric"><span>완공 전 월 이자 · 10억</span><b id="gaepoMonthlyInterest">-</b></div>
+    <div class="metric"><span>완공 전 누적이자 · 58개월</span><b id="gaepoInterest">-</b></div>
+    <div class="metric"><span>2031 이후 추가 대출</span><b>7.0억</b></div>
+    <div class="metric"><span>2031~2036 월 이자 · 7억</span><b id="gaepoExtraMonthlyInterest">-</b></div>
+    <div class="metric"><span>2031~2036 누적이자 · 60개월</span><b id="gaepoExtraInterest">-</b></div>
+    <div class="metric"><span>2031 이후 총 대출</span><b>17.0억</b></div>
   </div>
 </div>
 
@@ -149,13 +151,13 @@ label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}input,se
     <thead><tr><th>항목</th><th>중푸 40평</th><th>개포한신 34평</th></tr></thead>
     <tbody>
       <tr><td>2031 기준 예상가</td><td>31.2억</td><td>47.8억</td></tr>
-      <tr><td>2031 잔존대출</td><td id="wiryeBalance2">-</td><td>17.0억</td></tr>
+      <tr><td>2031 시점 대출</td><td id="wiryeBalance2">-</td><td>10.0억</td></tr>
       <tr><td>완공까지 누적이자</td><td id="wiryeInterest2">-</td><td id="gaepoInterest2">-</td></tr>
-      <tr><td><b>예상가 - 잔존대출</b></td><td id="wiryeNetEquity">-</td><td><b>30.8억</b></td></tr>
-      <tr><td><b>예상가 - 잔존대출 - 누적이자</b></td><td id="wiryeNetAfterInterest">-</td><td id="gaepoNetAfterInterest">-</td></tr>
+      <tr><td><b>2031 예상가 - 시점 대출</b></td><td id="wiryeNetEquity">-</td><td><b>37.8억</b></td></tr>
+      <tr><td><b>2031 순자산 - 완공 전 누적이자</b></td><td id="wiryeNetAfterInterest">-</td><td id="gaepoNetAfterInterest">-</td></tr>
     </tbody>
   </table></div>
-  <p class="muted">누적이자는 자산가치로 남지 않는 현금유출이므로 매몰비용으로 분리했습니다. 원금상환은 순자산으로 전환되므로 매몰비용에 포함하지 않습니다. 취득세·중개보수·보유세·재건축 추가분담금 변동은 아직 제외되어 있습니다.</p>
+  <p class="muted">누적이자는 자산가치로 남지 않는 현금유출이므로 매몰비용으로 분리했습니다. 2031 순자산 비교에는 완공 전 실제 실행 중인 10억만 부채로 반영하고, 7억은 2031년 이후 추가분담금 대출로 별도 계산합니다. 취득세·중개보수·보유세·분담금 변동은 아직 제외되어 있습니다.</p>
 </div>
 </section>
 
@@ -210,7 +212,7 @@ label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}input,se
           <thead><tr><th>항목</th><th>중푸 40평</th><th>개포한신 22→34평</th></tr></thead>
           <tbody>
             <tr><td>자산가치 / 총투입</td><td>25.0억</td><td>39.5억</td></tr>
-            <tr><td>총 대출</td><td><b>4.2억</b></td><td><b>17.0억</b></td></tr>
+            <tr><td>대출 구조</td><td><b>4.2억</b></td><td><b>완공 전 10억 → 2031 이후 17억</b></td></tr>
             <tr><td>초기 순자기자본</td><td><b>20.8억</b></td><td><b>22.5억</b></td></tr>
           </tbody>
         </table>
@@ -234,7 +236,7 @@ label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}input,se
   </div>
 
   <div class="quant-note">
-    <div><b>개포한신</b><br>매수가 32.5억 + 추가분담금 약 7억 = 총투입 39.5억. 자기자본 22.5억, 대출 17억 가정.</div>
+    <div><b>개포한신</b><br>매수가 32.5억 중 이주비 10억을 승계하고, 추가분담금 약 7억은 2031년 이후 별도 대출 실행으로 가정. 총투입액은 39.5억.</div>
     <div><b>비용 반영 범위</b><br>* 상승률은 총투입 기준 단순 비교. 취득세·중개보수·보유세·분담금 변동은 별도이며, 대출이자는 위 ‘순자산 비교’에서 따로 반영.</div>
   </div>
 </div>
@@ -433,16 +435,17 @@ function recalcLoans(){
  document.getElementById("wiryeNetAfterInterest").textContent=fmtEok(31.2-w.balance-w.interest);
 
  const br=+document.getElementById("basicRate").value,er=+document.getElementById("extraRate").value;
- const weighted=(10*br+7*er)/17;
- const monthlyInt=((10*(br/100)+7*(er/100))/12)*1e4;
- const totalInt=(10*(br/100)+7*(er/100))*months/12;
- const ga=amort(17,weighted,30,months);
- document.getElementById("gaepoWeighted").textContent=weighted.toFixed(2)+"%";
- document.getElementById("gaepoMonthlyInterest").textContent=fmtMan(monthlyInt);
- document.getElementById("gaepoInterest").textContent=fmtEok(totalInt);
- document.getElementById("gaepoAmortized").textContent=fmtMan(ga.monthly)+"/월";
- document.getElementById("gaepoInterest2").textContent=fmtEok(totalInt);
- document.getElementById("gaepoNetAfterInterest").textContent=fmtEok(47.8-17-totalInt);
+ const preMonthlyInt=(10*(br/100)/12)*1e4;
+ const preTotalInt=(10*(br/100))*months/12;
+ const postMonths=60;
+ const extraMonthlyInt=(7*(er/100)/12)*1e4;
+ const extraTotalInt=(7*(er/100))*postMonths/12;
+ document.getElementById("gaepoMonthlyInterest").textContent=fmtMan(preMonthlyInt);
+ document.getElementById("gaepoInterest").textContent=fmtEok(preTotalInt);
+ document.getElementById("gaepoExtraMonthlyInterest").textContent=fmtMan(extraMonthlyInt);
+ document.getElementById("gaepoExtraInterest").textContent=fmtEok(extraTotalInt);
+ document.getElementById("gaepoInterest2").textContent=fmtEok(preTotalInt);
+ document.getElementById("gaepoNetAfterInterest").textContent=fmtEok(47.8-10-preTotalInt);
 }
 ["wiryeMonthlyInput","wiryeTerm","basicRate","extraRate"].forEach(id=>document.getElementById(id)?.addEventListener("input",recalcLoans));
 document.querySelectorAll(".tabbtn").forEach(btn=>btn.addEventListener("click",()=>{
