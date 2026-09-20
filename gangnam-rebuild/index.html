@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>강남·송파 재건축 30~32억 비교</title>
 <style>
-:root{--bg:#f6f7f9;--card:#fff;--text:#17202a;--muted:#667085;--line:#e4e7ec;--accent:#2563eb;--ok:#067647;--warn:#b54708;--bad:#b42318;--chip:#f2f4f7}
+:root{--bg:#f6f7f9;--card:#fff;--text:#17202a;--muted:#667085;--line:#e4e7ec;--accent:#2563eb;--ok:#067647;--warn:#b54708;--bad:#b42318;--chip:#f2f4f7;--blue:#eff6ff;--blue-line:#bfdbfe;--green:#ecfdf3;--green-line:#a7f3d0;--orange:#fff7ed;--orange-line:#fed7aa;--purple:#faf5ff;--purple-line:#e9d5ff}
 *{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Pretendard,Roboto,sans-serif;background:var(--bg);color:var(--text)}
 main{max-width:1320px;margin:auto;padding:24px 16px 56px}h1{font-size:28px;margin:0 0 8px}.sub{color:var(--muted);margin:0 0 20px;line-height:1.55}
 .controls{display:grid;grid-template-columns:1.15fr .8fr .8fr .9fr .95fr;gap:10px;background:var(--card);padding:14px;border:1px solid var(--line);border-radius:14px;margin-bottom:14px}
@@ -17,7 +17,7 @@ label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}input,se
 .price-list{margin:0;padding:0;list-style:none;min-width:300px}.price-list li{position:relative;padding:0 0 9px 14px;line-height:1.45}.price-list li:last-child{padding-bottom:0}.price-list li:before{content:"•";position:absolute;left:0;top:0;color:#475467;font-weight:800}.p-title{display:block;font-weight:750;color:#1d2939}.p-detail{display:block;color:#475467;margin-top:2px}.p-source{display:inline-block;margin-top:3px;color:var(--accent);font-size:11px;text-decoration:none}.tag{display:inline-block;padding:2px 5px;border:1px solid #d0d5dd;border-radius:5px;font-size:10px;color:#667085;margin-right:4px;background:#fff}
 .link{color:var(--accent);text-decoration:none}.section{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.section h2{font-size:18px;margin:0 0 10px}.section p,.section li{font-size:13px;line-height:1.65;color:#475467}.foot{font-size:12px;color:var(--muted);margin-top:18px;line-height:1.6}
 .tabs{display:flex;gap:8px;margin:0 0 16px}.tabbtn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;font-weight:750;cursor:pointer}.tabbtn.active{background:#111827;color:#fff;border-color:#111827}.tabpane{display:none}.tabpane.active{display:block}
-.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.compare-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.compare-card h3{margin:0 0 6px;font-size:18px}.big{font-size:28px;font-weight:850}.metric{display:grid;grid-template-columns:1fr auto;gap:8px;padding:8px 0;border-bottom:1px solid var(--line)}.metric:last-child{border-bottom:0}.scenario-table{width:100%;min-width:0}.scenario-table th,.scenario-table td{font-size:13px}.catalysts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.cat{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fafafa}.cat b{display:block;margin-bottom:4px}.note-box{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:12px;font-size:13px;line-height:1.6;color:#713f12}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.compare-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.compare-card.wirye{background:var(--blue);border-color:var(--blue-line)}.compare-card.gaepo{background:var(--green);border-color:var(--green-line)}.loan-card{background:var(--purple);border:1px solid var(--purple-line);border-radius:14px;padding:16px}.cost-card{background:var(--orange);border:1px solid var(--orange-line);border-radius:14px;padding:16px}.compare-card h3{margin:0 0 6px;font-size:18px}.big{font-size:28px;font-weight:850}.metric{display:grid;grid-template-columns:1fr auto;gap:8px;padding:8px 0;border-bottom:1px solid var(--line)}.metric:last-child{border-bottom:0}.scenario-table{width:100%;min-width:0}.scenario-table th,.scenario-table td{font-size:13px}.catalysts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.cat{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fafafa}.cat b{display:block;margin-bottom:4px}.note-box{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:12px;font-size:13px;line-height:1.6;color:#713f12}
 @media(max-width:800px){.compare-grid,.catalysts{grid-template-columns:1fr}.tablewrap th:first-child,.tablewrap td:first-child{min-width:130px;width:130px}}
 .stage{font-weight:750}.date{white-space:nowrap}.progress-list{margin:7px 0 0;padding:0;list-style:none}.progress-list li{margin:0 0 4px;line-height:1.4}.progress-label{display:inline-block;min-width:68px;color:var(--muted);font-size:11px}.sunset-box{min-width:150px}.sunset-date{display:block;margin:7px 0 6px;font-weight:700}.empty{padding:28px;text-align:center;color:var(--muted)}
 @media(max-width:900px){main{padding:18px 10px 40px}h1{font-size:22px}.controls{grid-template-columns:1fr 1fr}.controls>div:first-child{grid-column:1/-1}.price-list{min-width:260px}}
@@ -97,7 +97,7 @@ label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}input,se
 <div class="metric"><span>2035 기준 시나리오</span><b>약 37.2억</b></div>
 <div class="metric"><span>핵심 상승동력</span><b>트램·HMG·위례신사선</b></div>
 </div>
-<div class="compare-card">
+<div class="compare-card gaepo">
 <h3>도곡개포한신 22평 → 34평</h3>
 <div class="big">매수 32.5억 + 분담금 약 7억</div>
 <div class="metric"><span>총 경제적 투입</span><b>약 39.5억*</b></div>
@@ -111,9 +111,57 @@ label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}input,se
 </section>
 
 <section class="section">
+<h2>대출 원리금 · 완공까지 매몰비용</h2>
+<div class="note-box" style="margin-bottom:12px">기본 완공시점은 <b>2031년 7월</b>로 두고 현재 기준 약 <b>58개월</b>을 계산합니다. 아래 금리·만기는 직접 수정할 수 있습니다. 개포한신의 이주비·추가대출은 완공 전에는 원금상환 없이 이자만 납부하는 구조로 가정하고, 별도로 30년 원리금균등 환산액도 함께 보여줍니다.</div>
+
+<div class="compare-grid">
+  <div class="loan-card">
+    <h3>중푸 40평 · 대출 4.2억</h3>
+    <div class="controls" style="grid-template-columns:1fr 1fr;margin:10px 0 12px;padding:10px">
+      <div><label for="wiryeRate">금리(%)</label><input id="wiryeRate" type="number" step="0.01" value="4.48"></div>
+      <div><label for="wiryeTerm">만기(년)</label><input id="wiryeTerm" type="number" step="1" value="30"></div>
+    </div>
+    <div class="metric"><span>월 원리금</span><b id="wiryeMonthly">-</b></div>
+    <div class="metric"><span>완공까지 총 납입액</span><b id="wiryePaid">-</b></div>
+    <div class="metric"><span>그중 원금상환</span><b id="wiryePrincipal">-</b></div>
+    <div class="metric"><span>매몰비용 · 누적이자</span><b id="wiryeInterest">-</b></div>
+    <div class="metric"><span>2031 잔존대출</span><b id="wiryeBalance">-</b></div>
+  </div>
+
+  <div class="loan-card">
+    <h3>개포한신 · 총 대출 17억</h3>
+    <div class="controls" style="grid-template-columns:1fr 1fr;margin:10px 0 12px;padding:10px">
+      <div><label for="basicRate">기본 이주비 10억 금리(%)</label><input id="basicRate" type="number" step="0.01" value="4.48"></div>
+      <div><label for="extraRate">추가대출 7억 금리(%)</label><input id="extraRate" type="number" step="0.01" value="5.98"></div>
+    </div>
+    <div class="metric"><span>가중평균 금리</span><b id="gaepoWeighted">-</b></div>
+    <div class="metric"><span>완공 전 월 이자</span><b id="gaepoMonthlyInterest">-</b></div>
+    <div class="metric"><span>완공까지 매몰이자</span><b id="gaepoInterest">-</b></div>
+    <div class="metric"><span>2031 잔존대출</span><b>17.0억</b></div>
+    <div class="metric"><span>30년 원리금 환산</span><b id="gaepoAmortized">-</b></div>
+  </div>
+</div>
+
+<div class="cost-card" style="margin-top:12px">
+  <h3 style="margin-top:0">2031년 기준 · 대출과 이자까지 반영한 순자산 비교</h3>
+  <div class="tablewrap"><table class="scenario-table">
+    <thead><tr><th>항목</th><th>중푸 40평</th><th>개포한신 34평</th></tr></thead>
+    <tbody>
+      <tr><td>2031 기준 예상가</td><td>31.2억</td><td>47.8억</td></tr>
+      <tr><td>2031 잔존대출</td><td id="wiryeBalance2">-</td><td>17.0억</td></tr>
+      <tr><td>완공까지 누적이자</td><td id="wiryeInterest2">-</td><td id="gaepoInterest2">-</td></tr>
+      <tr><td><b>예상가 - 잔존대출</b></td><td id="wiryeNetEquity">-</td><td><b>30.8억</b></td></tr>
+      <tr><td><b>예상가 - 잔존대출 - 누적이자</b></td><td id="wiryeNetAfterInterest">-</td><td id="gaepoNetAfterInterest">-</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted">누적이자는 자산가치로 남지 않는 현금유출이므로 매몰비용으로 분리했습니다. 원금상환은 순자산으로 전환되므로 매몰비용에 포함하지 않습니다. 취득세·중개보수·보유세·재건축 추가분담금 변동은 아직 제외되어 있습니다.</p>
+</div>
+</section>
+
+<section class="section">
 <h2>2031~2035 가격 시나리오</h2>
 
-<div class="compare-card" style="margin-bottom:12px">
+<div class="compare-card wirye" style="margin-bottom:12px">
 <h3>위례중앙푸르지오 40평</h3>
 <div class="tablewrap"><table class="scenario-table">
 <thead><tr><th>시점</th><th>비관적</th><th>기준</th><th>낙관적</th></tr></thead>
@@ -123,7 +171,7 @@ label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}input,se
 </tbody></table></div>
 </div>
 
-<div class="compare-card">
+<div class="compare-card gaepo">
 <h3>도곡개포한신 34평</h3>
 <div class="tablewrap"><table class="scenario-table">
 <thead><tr><th>시점</th><th>비관적</th><th>기준</th><th>낙관적</th></tr></thead>
@@ -324,12 +372,49 @@ function render(){
  }).join("");
 }
 ["date","min","max","district","scope"].forEach(id=>document.getElementById(id).addEventListener("input",render));
+function fmtEok(v){return (Math.round(v*100)/100).toFixed(2)+"억"}
+function fmtMan(v){return Math.round(v).toLocaleString()+"만원"}
+function amort(principalEok,annualPct,years,months){
+ const P=principalEok*1e8,r=(annualPct/100)/12,n=years*12;
+ const pay=r===0?P/n:P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+ let bal=P,interest=0,principal=0;
+ for(let i=0;i<months;i++){const intr=bal*r,pr=pay-intr;interest+=intr;principal+=pr;bal-=pr;}
+ return {monthly:pay/1e4,interest:interest/1e8,principal:principal/1e8,balance:bal/1e8,paid:(pay*months)/1e8};
+}
+function recalcLoans(){
+ const months=58;
+ const wr=+document.getElementById("wiryeRate").value,wt=+document.getElementById("wiryeTerm").value;
+ const w=amort(4.2,wr,wt,months);
+ document.getElementById("wiryeMonthly").textContent=fmtMan(w.monthly);
+ document.getElementById("wiryePaid").textContent=fmtEok(w.paid);
+ document.getElementById("wiryePrincipal").textContent=fmtEok(w.principal);
+ document.getElementById("wiryeInterest").textContent=fmtEok(w.interest);
+ document.getElementById("wiryeBalance").textContent=fmtEok(w.balance);
+ document.getElementById("wiryeBalance2").textContent=fmtEok(w.balance);
+ document.getElementById("wiryeInterest2").textContent=fmtEok(w.interest);
+ document.getElementById("wiryeNetEquity").textContent=fmtEok(31.2-w.balance);
+ document.getElementById("wiryeNetAfterInterest").textContent=fmtEok(31.2-w.balance-w.interest);
+
+ const br=+document.getElementById("basicRate").value,er=+document.getElementById("extraRate").value;
+ const weighted=(10*br+7*er)/17;
+ const monthlyInt=((10*(br/100)+7*(er/100))/12)*1e4;
+ const totalInt=(10*(br/100)+7*(er/100))*months/12;
+ const ga=amort(17,weighted,30,months);
+ document.getElementById("gaepoWeighted").textContent=weighted.toFixed(2)+"%";
+ document.getElementById("gaepoMonthlyInterest").textContent=fmtMan(monthlyInt);
+ document.getElementById("gaepoInterest").textContent=fmtEok(totalInt);
+ document.getElementById("gaepoAmortized").textContent=fmtMan(ga.monthly)+"/월";
+ document.getElementById("gaepoInterest2").textContent=fmtEok(totalInt);
+ document.getElementById("gaepoNetAfterInterest").textContent=fmtEok(47.8-17-totalInt);
+}
+["wiryeRate","wiryeTerm","basicRate","extraRate"].forEach(id=>document.getElementById(id)?.addEventListener("input",recalcLoans));
 document.querySelectorAll(".tabbtn").forEach(btn=>btn.addEventListener("click",()=>{
  document.querySelectorAll(".tabbtn").forEach(b=>b.classList.remove("active"));
  document.querySelectorAll(".tabpane").forEach(p=>p.classList.remove("active"));
  btn.classList.add("active"); document.getElementById(btn.dataset.tab).classList.add("active");
 }));
 render();
+recalcLoans();
 </script>
 </body>
 </html>
