@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>강남구 재건축 30~32억 비교</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--text:#17202a;--muted:#667085;--line:#e4e7ec;--accent:#2563eb;--ok:#067647;--warn:#b54708;--bad:#b42318}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Pretendard,Roboto,sans-serif;background:var(--bg);color:var(--text)}
+main{max-width:1180px;margin:auto;padding:24px 16px 56px}h1{font-size:28px;margin:0 0 8px}.sub{color:var(--muted);margin:0 0 22px;line-height:1.55}
+.controls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;background:var(--card);padding:14px;border:1px solid var(--line);border-radius:14px;margin-bottom:16px}
+label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}input,select{width:100%;padding:10px 11px;border:1px solid #d0d5dd;border-radius:9px;background:#fff;font-size:15px}
+.summary{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 16px}.pill{padding:8px 11px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:13px}
+.tablewrap{overflow:auto;background:#fff;border:1px solid var(--line);border-radius:14px}table{border-collapse:collapse;width:100%;min-width:1040px}th,td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:13px}th{position:sticky;top:0;background:#f9fafb;color:#475467;font-weight:700}tr:last-child td{border-bottom:0}
+.name{font-weight:700;font-size:14px}.muted{color:var(--muted)}.status{display:inline-block;padding:5px 8px;border-radius:999px;font-weight:700;font-size:12px}.ok{background:#ecfdf3;color:var(--ok)}.warn{background:#fffaeb;color:var(--warn)}.bad{background:#fef3f2;color:var(--bad)}.neutral{background:#f2f4f7;color:#475467}
+.price{font-weight:750;white-space:nowrap}.link{color:var(--accent);text-decoration:none}.section{margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.section h2{font-size:18px;margin:0 0 10px}.section p,.section li{font-size:13px;line-height:1.65;color:#475467}.foot{font-size:12px;color:var(--muted);margin-top:18px;line-height:1.6}
+@media(max-width:720px){main{padding:18px 10px 40px}h1{font-size:22px}.controls{grid-template-columns:1fr 1fr}.tablewrap{border-radius:10px}}
+</style>
+</head>
+<body>
+<main>
+<h1>강남구 재건축 매물 비교</h1>
+<p class="sub">기준일을 바꾸면 사업지연에 따른 조합원 지위양도 예외(일명 ‘일몰’) 가능성을 자동 계산합니다. 기본 가격 필터는 30억~32억원입니다. 데이터 기준일: 2026-09-20.</p>
+
+<div class="controls">
+  <div><label for="date">판단 기준일</label><input id="date" type="date" value="2026-09-20"></div>
+  <div><label for="min">최소가격(억원)</label><input id="min" type="number" step="0.1" value="30"></div>
+  <div><label for="max">최대가격(억원)</label><input id="max" type="number" step="0.1" value="32"></div>
+  <div><label for="scope">표시 범위</label><select id="scope"><option value="match">가격조건 해당</option><option value="all">추적 대상 전체</option></select></div>
+</div>
+<div class="summary"><span class="pill" id="count"></span><span class="pill">일반 재건축: 사업시행인가 후 3년 미착공</span><span class="pill">소규모 재건축: 2년 미착공</span></div>
+
+<div class="tablewrap">
+<table>
+<thead><tr>
+<th>단지</th><th>가격 근거</th><th>사업 단계</th><th>사업시행인가</th><th>관리처분</th><th>이주/착공</th><th>일몰 기준일</th><th>선택일 판정</th><th>비고</th>
+</tr></thead>
+<tbody id="rows"></tbody>
+</table>
+</div>
+
+<section class="section">
+<h2>판정 로직</h2>
+<ul>
+<li><b>일반 재건축</b>: 사업시행계획인가 후 3년 이내 착공하지 못한 사업에서, 매도인이 해당 부동산을 3년 이상 계속 소유하고 착공 전에 양도하는 경우의 예외 가능성을 표시합니다.</li>
+<li><b>소규모 재건축</b>: 사업시행계획인가 후 2년 미착공 및 매도인 2년 이상 계속 소유 요건을 사용합니다.</li>
+<li>이 페이지의 “가능성 있음”은 <b>날짜·착공 여부만으로 본 예비판정</b>입니다. 실제 거래에는 매도인의 소유기간, 세대·권리관계, 조합 확인 등이 추가로 필요합니다. 미래 날짜의 “가정상 가능(미착공)”은 그 날짜까지 착공신고가 없다는 가정입니다.</li>
+</ul>
+</section>
+
+<section class="section">
+<h2>출처</h2>
+<p>
+<a class="link" href="https://www.gangnam.go.kr/board/union/112/view.do?mid=ID02_01130501" target="_blank" rel="noopener">강남구청 재건축조합 정비사업 단계별 현황(2026.08)</a> ·
+<a class="link" href="https://cleanup.seoul.go.kr/" target="_blank" rel="noopener">서울시 정비사업 정보몽땅</a> ·
+<a class="link" href="https://www.law.go.kr/" target="_blank" rel="noopener">국가법령정보센터</a>
+</p>
+<p>가격은 네이버페이 부동산에서 확인되는 매물·단지 정보를 우선 참고하고, 검색 노출이 만료되거나 최신 매물이 직접 노출되지 않는 경우 최근 실거래와 공개 시세/매물 집계로 보조 검증했습니다. 개별 매물은 수시로 삭제·변경될 수 있습니다.</p>
+</section>
+<p class="foot">※ 투자·세무·법률 판단을 대신하는 자료가 아닙니다. 착공신고는 실제 공사 착수와 시차가 있을 수 있으므로 강남구/조합의 공식 신고 여부를 최종 확인해야 합니다.</p>
+</main>
+<script>
+const data = [
+ {name:"도곡개포한신",type:"일반",min:31.0,max:32.5,price:"22평 호가 약 32.5억 / 최근 31~31.5억",priceDate:"2026-09",stage:"관리처분인가·이주",approval:"2022-12-28",manage:"2025-12-19",move:"2026-07 이주 시작",start:null,sunset:"2025-12-28",note:"22평→84㎡ 신청 매물 중심. 일몰 기준일은 이미 경과.",src:"https://apt.zaritalk.com/complex/%EB%8F%84%EA%B3%A1%EB%8F%99-%ED%95%9C%EC%8B%A0%EA%B0%9C%ED%8F%AC-18990"},
+ {name:"개포주공6단지",type:"일반",min:31.0,max:32.0,price:"전용 60.13㎡ 최근 31~32억",priceDate:"2026-09-01",stage:"사업시행인가·시공사 선정",approval:"2024-11-11",manage:null,move:"이주 전",start:null,sunset:"2027-11-11",note:"6·7단지 통합 재건축. 30~32억 구간 핵심 후보.",src:"https://silgeo.com/complexes/%EC%84%9C%EC%9A%B8/%EA%B0%95%EB%82%A8%EA%B5%AC/%EA%B0%9C%ED%8F%AC%EC%A3%BC%EA%B3%B56%EB%8B%A8%EC%A7%80"},
+ {name:"개포주공7단지",type:"일반",min:30.5,max:32.5,price:"전용 60.76㎡ 30.5억 / 73.26㎡ 31억 / 83.7㎡ 32.5억",priceDate:"2026-09-09",stage:"사업시행인가·시공사 선정",approval:"2024-11-11",manage:null,move:"이주 전",start:null,sunset:"2027-11-11",note:"최근 30~32억대 거래가 다수 확인됨.",src:"https://ilsangkit.co.kr/real-estate/apt-sale/seoul/gangnam/%EA%B0%9C%ED%8F%AC%EC%A3%BC%EA%B3%B57%EB%8B%A8%EC%A7%80"},
+ {name:"은마",type:"일반",min:30.2,max:33.0,price:"전용 76.79㎡ 최근 30.2억, 호가 약 30.8~33억",priceDate:"2026-09-18",stage:"사업시행인가",approval:"2026-07-02",manage:null,move:"이주 전",start:null,sunset:"2029-07-02",note:"강남구는 2028년 착공 목표를 밝힘. 실제 착공 시 일몰 예외 불가.",src:"https://www.budongsantong.com/apartment/seoul/gangnam-gu/a-3454387125344197"},
+ {name:"개포주공5단지",type:"일반",min:29.5,max:29.5,price:"23평 최근 시세 약 29.5억",priceDate:"2026-07",stage:"관리처분인가·이주 완료권",approval:"2023-10-12",manage:"2025-09-29",move:"2026-01 이주 시작 / 철거 준비",start:null,sunset:"2026-10-12",note:"30억 하단 경계값. 일몰 기준일이 임박해 추적 대상으로 유지.",src:"https://cleanup.seoul.go.kr/assc/scrin-bbs/execute.do?cafeId=680900000683Y53"}
+];
+function cls(s){return (s==="가능성 있음"||s==="가정상 가능(미착공)")?"ok":s==="미도달"?"warn":s==="착공으로 불가"?"bad":"neutral"}
+function status(d,row){
+ const q=new Date(d+"T00:00:00"), sunset=new Date(row.sunset+"T00:00:00"), today=new Date("2026-09-20T00:00:00");
+ if(row.start){const st=new Date(row.start+"T00:00:00"); if(q>=st)return "착공으로 불가";}
+ if(q<sunset)return "미도달";
+ if(q>today && !row.start)return "가정상 가능(미착공)";
+ return "가능성 있음";
+}
+function intersects(a,b,min,max){return Math.max(a,min)<=Math.min(b,max)}
+function render(){
+ const d=document.querySelector("#date").value, min=+document.querySelector("#min").value, max=+document.querySelector("#max").value, all=document.querySelector("#scope").value==="all";
+ const shown=data.filter(r=>all||intersects(r.min,r.max,min,max));
+ document.querySelector("#count").textContent="표시 "+shown.length+"개 단지";
+ document.querySelector("#rows").innerHTML=shown.map(r=>{
+   const s=status(d,r);
+   return '<tr>'+
+   '<td><div class="name">'+r.name+'</div><div class="muted">'+r.type+' 재건축</div></td>'+
+   '<td><div class="price">'+r.price+'</div><div class="muted">기준 '+r.priceDate+' · <a class="link" target="_blank" rel="noopener" href="'+r.src+'">근거</a></div></td>'+
+   '<td>'+r.stage+'</td>'+
+   '<td>'+r.approval+'</td>'+
+   '<td>'+(r.manage||'미인가')+'</td>'+
+   '<td>'+r.move+(r.start?'<br>착공 '+r.start:'<br><span class="muted">확인된 착공신고 없음</span>')+'</td>'+
+   '<td><b>'+r.sunset+'</b></td>'+
+   '<td><span class="status '+cls(s)+'">'+s+'</span></td>'+
+   '<td>'+r.note+'</td></tr>'
+ }).join("");
+}
+["date","min","max","scope"].forEach(id=>document.getElementById(id).addEventListener("input",render));
+render();
+</script>
+</body>
+</html>
