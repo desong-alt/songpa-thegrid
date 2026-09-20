@@ -118,10 +118,11 @@ label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}input,se
   <div class="loan-card">
     <h3>중푸 40평 · 대출 4.2억</h3>
     <div class="controls" style="grid-template-columns:1fr 1fr;margin:10px 0 12px;padding:10px">
-      <div><label for="wiryeRate">금리(%)</label><input id="wiryeRate" type="number" step="0.01" value="4.48"></div>
-      <div><label for="wiryeTerm">만기(년)</label><input id="wiryeTerm" type="number" step="1" value="30"></div>
+      <div><label for="wiryeMonthlyInput">월 원리금(만원)</label><input id="wiryeMonthlyInput" type="number" step="1" value="180"></div>
+      <div><label for="wiryeTerm">만기(년)</label><input id="wiryeTerm" type="number" step="1" value="35"></div>
     </div>
-    <div class="metric"><span>월 원리금</span><b id="wiryeMonthly">-</b></div>
+    <div class="metric"><span>월 원리금</span><b id="wiryeMonthly">180만원</b></div>
+    <div class="metric"><span>환산 금리</span><b id="wiryeRateImplied">-</b></div>
     <div class="metric"><span>완공까지 총 납입액</span><b id="wiryePaid">-</b></div>
     <div class="metric"><span>그중 원금상환</span><b id="wiryePrincipal">-</b></div>
     <div class="metric"><span>매몰비용 · 누적이자</span><b id="wiryeInterest">-</b></div>
@@ -164,24 +165,26 @@ label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px}input,se
 <div class="compare-card wirye" style="margin-bottom:12px">
 <h3>위례중앙푸르지오 40평</h3>
 <div class="tablewrap"><table class="scenario-table">
-<thead><tr><th>시점</th><th>비관적</th><th>기준</th><th>낙관적</th></tr></thead>
+<thead><tr><th>시나리오</th><th>2031</th><th>2035</th></tr></thead>
 <tbody>
-<tr><td><b>2031</b></td><td>29.0억</td><td><b>31.2억</b></td><td>33.5억</td></tr>
-<tr><td><b>2035</b></td><td>32.6억</td><td><b>37.2억</b></td><td>42.2억</td></tr>
+<tr><td><b>비관적</b></td><td>29.0억</td><td>32.6억</td></tr>
+<tr><td><b>기준</b></td><td><b>31.2억</b></td><td><b>37.2억</b></td></tr>
+<tr><td><b>낙관적</b></td><td>33.5억</td><td>42.2억</td></tr>
 </tbody></table></div>
 </div>
 
 <div class="compare-card gaepo">
 <h3>도곡개포한신 34평</h3>
 <div class="tablewrap"><table class="scenario-table">
-<thead><tr><th>시점</th><th>비관적</th><th>기준</th><th>낙관적</th></tr></thead>
+<thead><tr><th>시나리오</th><th>2031</th><th>2035</th></tr></thead>
 <tbody>
-<tr><td><b>2031</b></td><td>44.5억</td><td><b>47.8억</b></td><td>51.4억</td></tr>
-<tr><td><b>2035</b></td><td>51.1억</td><td><b>58.1억</b></td><td>66.1억</td></tr>
+<tr><td><b>비관적</b></td><td>44.5억</td><td>51.1억</td></tr>
+<tr><td><b>기준</b></td><td><b>47.8억</b></td><td><b>58.1억</b></td></tr>
+<tr><td><b>낙관적</b></td><td>51.4억</td><td>66.1억</td></tr>
 </tbody></table></div>
 </div>
 
-<p class="muted">중푸는 2026년 40평 시세 25.0억에서 연 3% / 4.5% / 6% 성장 가정. 개포한신은 현재 도곡·개포 신축 84㎡ 비교군 약 35.7억을 기준으로 연 3.5% / 5% / 6.5% 성장 후, 2031 완공 시 신축·하이엔드 브랜드 프리미엄 5%를 반영한 시뮬레이션입니다.</p>
+<p class="muted">중푸는 2026년 40평 시세 25.0억에서 연 3% / 4.5% / 6% 성장 가정. 대출은 4.2억, 35년 만기, 월 원리금 180만원을 기본값으로 계산합니다. 개포한신은 현재 도곡·개포 신축 84㎡ 비교군 약 35.7억을 기준으로 연 3.5% / 5% / 6.5% 성장 후, 2031 완공 시 신축·하이엔드 브랜드 프리미엄 5%를 반영한 시뮬레이션입니다.</p>
 </section>
 
 <section class="section">
@@ -381,11 +384,31 @@ function amort(principalEok,annualPct,years,months){
  for(let i=0;i<months;i++){const intr=bal*r,pr=pay-intr;interest+=intr;principal+=pr;bal-=pr;}
  return {monthly:pay/1e4,interest:interest/1e8,principal:principal/1e8,balance:bal/1e8,paid:(pay*months)/1e8};
 }
+function solveMonthlyRate(P,pay,n){
+ let lo=0,hi=0.02;
+ for(let k=0;k<100;k++){
+   const r=(lo+hi)/2;
+   const calc=r===0?P/n:P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+   if(calc>pay)hi=r;else lo=r;
+ }
+ return (lo+hi)/2;
+}
+function amortFixedPayment(principalEok,monthlyMan,years,months){
+ const P=principalEok*1e8,pay=monthlyMan*1e4,n=years*12;
+ const r=solveMonthlyRate(P,pay,n);
+ let bal=P,interest=0,principal=0;
+ for(let i=0;i<months;i++){
+   const intr=bal*r,pr=pay-intr;
+   interest+=intr;principal+=pr;bal-=pr;
+ }
+ return {monthly:monthlyMan,annualRate:r*12*100,interest:interest/1e8,principal:principal/1e8,balance:bal/1e8,paid:(pay*months)/1e8};
+}
 function recalcLoans(){
  const months=58;
- const wr=+document.getElementById("wiryeRate").value,wt=+document.getElementById("wiryeTerm").value;
- const w=amort(4.2,wr,wt,months);
+ const wm=+document.getElementById("wiryeMonthlyInput").value,wt=+document.getElementById("wiryeTerm").value;
+ const w=amortFixedPayment(4.2,wm,wt,months);
  document.getElementById("wiryeMonthly").textContent=fmtMan(w.monthly);
+ document.getElementById("wiryeRateImplied").textContent=w.annualRate.toFixed(2)+"%";
  document.getElementById("wiryePaid").textContent=fmtEok(w.paid);
  document.getElementById("wiryePrincipal").textContent=fmtEok(w.principal);
  document.getElementById("wiryeInterest").textContent=fmtEok(w.interest);
@@ -407,7 +430,7 @@ function recalcLoans(){
  document.getElementById("gaepoInterest2").textContent=fmtEok(totalInt);
  document.getElementById("gaepoNetAfterInterest").textContent=fmtEok(47.8-17-totalInt);
 }
-["wiryeRate","wiryeTerm","basicRate","extraRate"].forEach(id=>document.getElementById(id)?.addEventListener("input",recalcLoans));
+["wiryeMonthlyInput","wiryeTerm","basicRate","extraRate"].forEach(id=>document.getElementById(id)?.addEventListener("input",recalcLoans));
 document.querySelectorAll(".tabbtn").forEach(btn=>btn.addEventListener("click",()=>{
  document.querySelectorAll(".tabbtn").forEach(b=>b.classList.remove("active"));
  document.querySelectorAll(".tabpane").forEach(p=>p.classList.remove("active"));
